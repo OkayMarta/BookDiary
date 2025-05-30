@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<!-- Головне вікно діалогу додавання/редагування книги -->
+<AnchorPane prefWidth="600.0" styleClass="dialog-pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.student.bookdiary.ui.AddEditBookController">
+    <children>
+        <!-- Основна сітка форми з полями введення -->
+        <GridPane hgap="10.0" vgap="15.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <columnConstraints>
+                <!-- Стовпець для міток полів -->
+                <ColumnConstraints hgrow="NEVER" minWidth="100.0" prefWidth="130.0" />
+                <!-- Стовпець для полів введення -->
+                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="NEVER" />
+                <RowConstraints minHeight="60.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <!-- Поле введення назви книги -->
+                <Label text="Назва *" styleClass="dialog-form-label" GridPane.rowIndex="0" />
+                <TextField fx:id="titleField" styleClass="dialog-form-input" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <!-- Поле введення автора -->
+                <Label text="Автор" styleClass="dialog-form-label" GridPane.rowIndex="1" />
+                <TextField fx:id="authorField" styleClass="dialog-form-input" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <!-- Вибір жанру книги -->
+                <Label text="Жанр" styleClass="dialog-form-label" GridPane.rowIndex="2" />
+                <ComboBox fx:id="genreComboBox" styleClass="dialog-form-combo-box" editable="true" prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <!-- Вибір статусу читання -->
+                <Label text="Статус *" styleClass="dialog-form-label" GridPane.rowIndex="3" />
+                <ComboBox fx:id="statusComboBox" styleClass="dialog-form-combo-box" prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <!-- Вибір дати прочитання -->
+                <Label fx:id="dateReadLabel" text="Дата прочитання" styleClass="dialog-form-label" GridPane.rowIndex="4" />
+                <DatePicker fx:id="dateReadPicker" styleClass="dialog-form-date-picker" disable="true" prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <!-- Вибір оцінки книги -->
+                <Label fx:id="ratingLabel" text="Оцінка (1-5)" styleClass="dialog-form-label" GridPane.rowIndex="5" />
+                <ComboBox fx:id="ratingComboBox" styleClass="dialog-form-combo-box" disable="true" prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                <!-- Секція для роботи з обкладинкою -->
+                <Label text="Обкладинка" styleClass="dialog-form-label" GridPane.rowIndex="6" />
+                <HBox fx:id="coverButtonsHBox" alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                    <children>
+                        <Button fx:id="selectCoverButton" styleClass="dialog-select-file-button" mnemonicParsing="false" onAction="#handleSelectCover" text="Обрати файл..." />
+                        <Button fx:id="deleteCoverButton" styleClass="dialog-danger-button-small" mnemonicParsing="false" onAction="#handleDeleteCover" text="Видалити" visible="false" managed="false" />
+                    </children>
+                </HBox>
+
+                <!-- Відображення обкладинки та шляху до файлу -->
+                <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                    <children>
+                        <ImageView fx:id="coverImageView" styleClass="dialog-cover-imageview" fitHeight="50.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="coverPathLabel" styleClass="dialog-cover-path-label" text="(не обрано)" HBox.hgrow="ALWAYS"/>
+                    </children>
+                    <GridPane.margin>
+                        <Insets top="5.0" />
+                    </GridPane.margin>
+                </HBox>
+
+                <!-- Поле для коментаря -->
+                <Label fx:id="commentLabel" text="Коментар" styleClass="dialog-form-label" GridPane.rowIndex="8" />
+                <TextArea fx:id="commentArea" styleClass="dialog-form-textarea" prefWidth="200.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+            </children>
+        </GridPane>
+
+        <!-- Панель кнопок -->
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" styleClass="dialog-button-pane">
+            <children>
+                <Button fx:id="saveButton" styleClass="save-button" mnemonicParsing="false" onAction="#handleSave" text="Зберегти" />
+                <Button fx:id="cancelButton" styleClass="cancel-button" mnemonicParsing="false" onAction="#handleCancel" text="Скасувати" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

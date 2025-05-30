@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<!-- Головне вікно діалогу додавання/редагування цілі читання -->
+<AnchorPane prefWidth="600.0" styleClass="dialog-pane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.student.bookdiary.ui.AddEditGoalController">
+    <children>
+        <!-- Заголовок діалогового вікна -->
+        <Label fx:id="dialogTitleLabel" alignment="CENTER" prefHeight="51.0" prefWidth="560.0" styleClass="dialog-title" text="Додати нову ціль" textAlignment="CENTER" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <!-- Основна сітка форми з полями введення -->
+        <GridPane hgap="10.0" layoutY="70.4" prefHeight="340.0" prefWidth="560.0" vgap="30.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0">
+            <columnConstraints>
+                <!-- Стовпець для міток полів -->
+                <ColumnConstraints hgrow="NEVER" minWidth="100.0" prefWidth="130.0" />
+                <!-- Стовпець для полів введення -->
+                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints fx:id="yearRow" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints fx:id="monthRow" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <!-- Поле для введення опису цілі -->
+                <Label prefHeight="18.0" prefWidth="100.0" styleClass="dialog-form-label" text="Опис цілі:" GridPane.halignment="RIGHT">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="descriptionField" promptText="Наприклад, Читацький марафон 2024" styleClass="dialog-form-input" GridPane.columnIndex="1" />
+
+                <!-- Вибір типу цілі -->
+                <Label prefHeight="18.0" prefWidth="100.0" styleClass="dialog-form-label" text="Тип цілі:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="typeComboBox" prefWidth="Infinity" promptText="Оберіть тип" styleClass="dialog-form-combo-box" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <!-- Встановлення кількості книг -->
+                <Label prefHeight="18.0" prefWidth="101.0" styleClass="dialog-form-label" text="Кількість книг:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Spinner fx:id="targetValueSpinner" editable="true" initialValue="5" max="1000" min="1" prefWidth="Infinity" styleClass="dialog-spinner" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <!-- Вибір року -->
+                <Label fx:id="yearLabel" prefHeight="18.0" prefWidth="100.0" styleClass="dialog-form-label" text="Рік:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="yearComboBox" prefWidth="Infinity" promptText="Оберіть рік" styleClass="dialog-form-combo-box" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <!-- Вибір місяця -->
+                <Label fx:id="monthLabel" prefHeight="18.0" prefWidth="100.0" styleClass="dialog-form-label" text="Місяць:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="monthComboBox" prefWidth="Infinity" promptText="Оберіть місяць" styleClass="dialog-form-combo-box" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            </children>
+        </GridPane>
+        <!-- Панель кнопок -->
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" styleClass="dialog-button-pane" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <children>
+                <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave" styleClass="save-button" text="Зберегти">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" styleClass="cancel-button" text="Скасувати">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

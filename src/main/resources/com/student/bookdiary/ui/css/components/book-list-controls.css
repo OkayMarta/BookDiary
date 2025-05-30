@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Поле пошуку (TextField з класом .filter-search-field) - ЖОРСТКІ СТИЛІ
+   "Жорсткі" означає, що кольори задані явно, а не через змінні -fx-app-*
+   ========================================================================== */
+.filter-search-field {
+    -fx-background-color: #AA8F76; /* Жорсткий колір фону */
+    -fx-text-fill: #FFFFFF;        /* Жорсткий колір введеного тексту */
+    -fx-prompt-text-fill: derive(#FFFFFF, -30%); /* Жорсткий колір тексту-підказки (placeholder), трохи темніший від білого */
+    -fx-min-height: 40px;          /* Мінімальна висота */
+    -fx-pref-height: 40px;         /* Бажана висота */
+    -fx-max-height: 40px;          /* Максимальна висота */
+    -fx-padding: 8px 12px;         /* Внутрішні відступи */
+    -fx-border-width: 0;           /* Без рамки */
+    -fx-border-radius: 8px;        /* Радіус заокруглення рамки (навіть якщо вона невидима, впливає на фон) */
+    -fx-background-radius: 8px;    /* Радіус заокруглення фону */
+    -fx-font-size: 14px;           /* Розмір шрифту */
+}
+
+.filter-search-field:focused {
+    -fx-effect: none;              /* Вимкнути стандартний ефект фокусу */
+    -fx-focus-color: transparent;  /* Колір рамки фокусу (прозорий) */
+    -fx-faint-focus-color: transparent; /* Колір "слабкого" фокусу (прозорий) */
+    -fx-border-width: 0;           /* Переконатися, що рамка відсутня при фокусі */
+    /* Можна додати легку тінь при фокусі, якщо бажано, але не змінювати фон */
+    /* -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1); */
+}
+
+/* ==========================================================================
+   Фільтри (ComboBox з класом .filter-combo-box) - ЖОРСТКІ СТИЛІ
+   ========================================================================== */
+.filter-combo-box {
+    -fx-background-color: #AA8F76; /* Жорсткий колір фону */
+    -fx-control-inner-background: #AA8F76; /* Для фону внутрішньої частини кнопки/відображуваного елемента */
+    -fx-min-height: 40px;          /* Мінімальна висота */
+    -fx-pref-height: 40px;         /* Бажана висота */
+    -fx-max-height: 40px;          /* Максимальна висота */
+    -fx-padding: 0;                /* Нульові внутрішні відступи (контролюються дочірніми елементами) */
+    -fx-border-width: 0;           /* Без рамки */
+    -fx-border-radius: 8px;        /* Радіус заокруглення рамки */
+    -fx-background-radius: 8px;    /* Радіус заокруглення фону */
+    -fx-font-size: 14px;           /* Розмір шрифту */
+}
+
+/* Текст вибраного елемента в кнопці ComboBox */
+.filter-combo-box > .list-cell {
+    -fx-background-color: transparent; /* Прозорий фон комірки, колір береться від батьківського ComboBox */
+    -fx-text-fill: #FFFFFF;        /* Жорсткий колір тексту */
+    -fx-padding: 8px 12px;         /* Внутрішні відступи */
+    -fx-background-radius: 8px;    /* Радіус заокруглення фону (для узгодження з батьківським) */
+}
+
+/* Стрілка ComboBox */
+.filter-combo-box .arrow-button {
+    -fx-background-color: transparent; /* Прозорий фон кнопки зі стрілкою */
+    -fx-padding: 0 10px 0 0;       /* Відступи (справа для стрілки) */
+    -fx-background-radius: 0 8px 8px 0; /* Заокруглення правого боку, щоб відповідати ComboBox */
+}
+
+.filter-combo-box .arrow {
+    -fx-background-color: #FFFFFF; /* Жорсткий колір самої стрілки */
+    -fx-padding: 3.5px;            /* Внутрішні відступи для стрілки, впливають на її розмір */
+    -fx-shape: "M0,0 L1,0 L0.5,0.5 Z"; /* Форма стрілки (трикутник вниз) */
+}
+
+.filter-combo-box:hover {
+    -fx-background-color: derive(#AA8F76, -5%); /* Колір фону при наведенні (трохи темніший) */
+    -fx-control-inner-background: derive(#AA8F76, -5%); /* Колір внутрішньої частини при наведенні */
+}
+
+.filter-combo-box:focused {
+    -fx-effect: none;              /* Вимкнути стандартний ефект фокусу */
+    -fx-focus-color: transparent;  /* Колір рамки фокусу (прозорий) */
+    -fx-faint-focus-color: transparent; /* Колір "слабкого" фокусу (прозорий) */
+    -fx-border-width: 0;           /* Без рамки при фокусі */
+    -fx-border-color: transparent; /* Колір рамки (прозорий) */
+    -fx-background-color: #AA8F76; /* Повернення до початкового кольору фону при фокусі (якщо hover змінив) */
+    -fx-control-inner-background: #AA8F76; /* Повернення до початкового кольору внутрішньої частини при фокусі */
+}
+
+/* Стилі для випадаючого списку (popup) ComboBox */
+.filter-combo-box .combo-box-popup .list-view {
+    -fx-background-color: #AA8F76; /* Фон випадаючого списку */
+    -fx-border-color: derive(#AA8F76, -20%); /* Колір рамки випадаючого списку (темніший) */
+    -fx-border-width: 1px;         /* Товщина рамки */
+    -fx-background-radius: 0 0 8px 8px; /* Заокруглення нижніх кутів фону */
+    -fx-border-radius: 0 0 8px 8px;    /* Заокруглення нижніх кутів рамки */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2); /* Легка тінь */
+}
+
+/* Елементи у випадаючому списку */
+.filter-combo-box .combo-box-popup .list-view .list-cell {
+    -fx-background-color: transparent; /* Прозорий фон комірки (колір від list-view) */
+    -fx-text-fill: #FFFFFF;        /* Текст елементів списку */
+    -fx-padding: 8px 12px;         /* Внутрішні відступи */
+}
+
+.filter-combo-box .combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: derive(#AA8F76, -10%); /* Колір фону комірки при наведенні (трохи темніший) */
+}
+
+.filter-combo-box .combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: #AA8F76; /* Явно заданий колір фону для вибраного елемента (може бути такий самий, як основний) */
+    -fx-text-fill: #FFFFFF;        /* Явно заданий колір тексту для вибраного елемента */
+    -fx-font-weight: bold;         /* Жирний шрифт для вибраного елемента */
+}
+
+
+/* ==========================================================================
+   Стилі для FlowPane з плитками книг
+   ========================================================================== */
+.book-list-flow-pane {
+    -fx-hgap: 24px; /* Горизонтальний відступ між плитками */
+    -fx-vgap: 24px; /* Вертикальний відступ між плитками */
+    -fx-padding: 24px; /* Внутрішні відступи самої FlowPane */
+    -fx-background-color: -fx-app-background-primary; /* Основний колір фону програми */
+}

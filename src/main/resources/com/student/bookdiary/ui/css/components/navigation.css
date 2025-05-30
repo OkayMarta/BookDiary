@@ -1,0 +1,154 @@
+/* ==========================================================================
+   Стилі для головної навігаційної панелі
+   ========================================================================== */
+.navigation-pane { /* Контейнер навігаційної панелі (наприклад, VBox) */
+    -fx-background-color: -fx-app-background-secondary; /* Вторинний фон програми (змінна) */
+    -fx-padding: 16px 0px 16px 0px; /* Вертикальні відступи, нульові горизонтальні (контролюються дочірніми) */
+    -fx-effect: -fx-app-shadow-small; /* Легка тінь (змінна) */
+}
+
+/* ==========================================================================
+   Стилі для заголовка "Book Diary" в навігаційній панелі
+   ========================================================================== */
+.navigation-pane-title {
+    -fx-font-family: "Book Antiqua"; /* Шрифт Book Antiqua */
+    -fx-font-size: 34px;       /* Розмір шрифту 34px */
+    -fx-font-weight: bold;     /* Насиченість шрифту: жирний (700) */
+    -fx-text-fill: -fx-app-text-color-primary; /* Основний колір тексту (змінна) */
+    -fx-padding: 0px 16px 16px 16px; /* Відступи: зверху 0, справа 16, знизу 16, зліва 16 */
+}
+
+/* ==========================================================================
+   Стилі для кнопок навігації (наприклад, "Прочитані", "Список бажань")
+   ========================================================================== */
+.navigation-button {
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-text-fill: -fx-app-text-color-primary; /* Основний колір тексту (змінна) */
+    -fx-font-family: "Book Antiqua"; /* Шрифт Book Antiqua */
+    -fx-font-size: 16px;            /* Розмір шрифту 16px */
+    -fx-font-weight: 500; /* Насиченість шрифту: medium (або normal/400, якщо Book Antiqua Bold не потрібен для неактивних кнопок) */
+    -fx-pref-height: 45px; /* Бажана висота кнопки */
+    -fx-min-width: 180px; /* Мінімальна ширина кнопки */
+    -fx-pref-width: 240px; /* Бажана ширина кнопки */
+    -fx-alignment: CENTER_LEFT; /* Вирівнювання вмісту (іконка + текст) по центру зліва */
+    -fx-padding: 0px 0px 0px 24px; /* Відступи: зліва 24px для іконки та тексту */
+    -fx-border-width: 0px; /* Без рамки */
+    -fx-background-radius: 0px; /* Прямокутні кути фону */
+    -fx-border-radius: 0px; /* Прямокутні кути рамки */
+    -fx-graphic-text-gap: 12px; /* Відстань між іконкою та текстом */
+}
+
+/* Стилі для іконок (Ikonli) всередині кнопок навігації */
+.navigation-button .ikonli-font-icon {
+    -fx-icon-size: 16px; /* Розмір іконки */
+    -fx-icon-color: -fx-app-text-color-primary; /* Колір іконки (змінна, як у тексту) */
+}
+
+.navigation-button:hover { /* Кнопка навігації при наведенні */
+    -fx-background-color: derive(-fx-app-background-secondary, -5%); /* Фон трохи темніший від вторинного фону (змінна) */
+}
+
+.navigation-button:hover .ikonli-font-icon { /* Іконка при наведенні на кнопку */
+    -fx-icon-color: -fx-app-text-color-primary; /* Колір іконки залишається тим самим (змінна) */
+}
+
+.navigation-button:pressed, .navigation-button:armed { /* Кнопка навігації при натисканні */
+    -fx-background-color: derive(-fx-app-background-secondary, -10%); /* Фон ще темніший (змінна) */
+}
+
+/* Стиль для активної/вибраної кнопки навігації */
+.navigation-button:selected, /* Стандартний псевдоклас для вибраної кнопки (наприклад, у ToggleGroup) */
+.navigation-button.active-nav-button { /* Додатковий клас для ручного встановлення активного стану */
+    -fx-background-color: #AA8F76; /* Фіксований колір фону для активної кнопки */
+    -fx-text-fill: -fx-app-text-on-accent-1; /* Колір тексту на акцентному фоні (змінна, зазвичай білий) */
+    -fx-font-weight: 600; /* Насиченість шрифту: semibold (або bold) */
+    -fx-border-width: 0px 0px 0px 4px; /* Ліва "позначка" активності: товщина 4px */
+    -fx-border-color: transparent transparent transparent derive(#AA8F76, -15%); /* Колір лівої позначки (трохи темніший від фону кнопки) */
+    -fx-padding: 0px 0px 0px 20px; /* Зменшений лівий відступ, щоб компенсувати ширину позначки */
+}
+
+.navigation-button:selected .ikonli-font-icon,
+.navigation-button.active-nav-button .ikonli-font-icon { /* Іконка активної кнопки */
+    -fx-icon-color: -fx-app-text-on-accent-1; /* Колір іконки (як у тексту активної кнопки, змінна) */
+}
+
+/* ==========================================================================
+   Стилі для кнопки "Додати нову книгу" (якщо вона в навігаційній панелі)
+   ========================================================================== */
+#addBookButton, .add-book-nav-button { /* Стиль для кнопки з ID addBookButton або класом add-book-nav-button */
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-text-fill: -fx-app-text-color-primary; /* Основний колір тексту (змінна) */
+    -fx-font-family: "Book Antiqua"; /* Шрифт Book Antiqua */
+    -fx-font-weight: 600; /* Насиченість шрифту: semibold */
+    -fx-alignment: CENTER; /* Вирівнювання вмісту по центру */
+    -fx-padding: 12px 16px; /* Внутрішні відступи */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-border-width: 2px; /* Товщина рамки */
+    -fx-border-color: #AA8F76; /* Фіксований колір рамки */
+    -fx-graphic-text-gap: 8px; /* Відстань між іконкою та текстом */
+}
+
+#addBookButton .ikonli-font-icon,
+.add-book-nav-button .ikonli-font-icon { /* Іконка кнопки "Додати нову книгу" */
+    -fx-icon-size: 16px; /* Розмір іконки */
+    -fx-icon-color: -fx-app-text-color-primary; /* Колір іконки (змінна) */
+}
+
+#addBookButton:hover, .add-book-nav-button:hover,
+#addBookButton:pressed, .add-book-nav-button:pressed,
+#addBookButton:armed, .add-book-nav-button:armed { /* Стани :hover, :pressed, :armed */
+    -fx-background-color: #AA8F76; /* Фіксований колір фону */
+    -fx-text-fill: -fx-app-text-on-accent-1; /* Колір тексту на акцентному фоні (змінна) */
+}
+
+#addBookButton:hover .ikonli-font-icon,
+.add-book-nav-button:hover .ikonli-font-icon,
+#addBookButton:pressed .ikonli-font-icon,
+.add-book-nav-button:pressed .ikonli-font-icon,
+#addBookButton:armed .ikonli-font-icon,
+.add-book-nav-button:armed .ikonli-font-icon { /* Іконка при станах :hover, :pressed, :armed */
+    -fx-icon-color: -fx-app-text-on-accent-1; /* Колір іконки (як у тексту, змінна) */
+}
+
+/* ==========================================================================
+   Стилі для кнопки перемикання теми (якщо вона в навігаційній панелі)
+   ========================================================================== */
+#themeToggleButton, .theme-toggle-nav-button { /* Стиль для кнопки з ID themeToggleButton або класом theme-toggle-nav-button */
+    -fx-background-color: -fx-palette-dark-theme-primary; /* Фон (основний колір темної теми, змінна) */
+    -fx-text-fill: -fx-palette-white; /* Колір тексту (білий, змінна) */
+    -fx-font-family: "Book Antiqua"; /* Шрифт Book Antiqua */
+    -fx-font-size: 16px; /* Розмір шрифту 16px */
+    -fx-padding: 8px 16px; /* Внутрішні відступи */
+    -fx-border-color: transparent; /* Прозора рамка */
+    -fx-border-width: 1px; /* Товщина рамки (може бути 0) */
+    -fx-border-radius: 8px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 8px; /* Радіус заокруглення фону */
+    -fx-alignment: CENTER; /* Вирівнювання вмісту по центру */
+    -fx-graphic-text-gap: 8px; /* Відстань між іконкою та текстом */
+}
+
+#themeToggleButton .ikonli-font-icon,
+.theme-toggle-nav-button .ikonli-font-icon { /* Іконка кнопки перемикання теми */
+    -fx-icon-size: 16px; /* Розмір іконки */
+    -fx-icon-color: -fx-palette-white; /* Колір іконки (білий, змінна) */
+}
+
+#themeToggleButton:hover, .theme-toggle-nav-button:hover { /* Кнопка при наведенні (не вибрана) */
+    -fx-background-color: derive(-fx-palette-dark-theme-primary, -10%); /* Фон трохи темніший (змінна) */
+}
+
+#themeToggleButton:selected, .theme-toggle-nav-button:selected { /* Кнопка вибрана (означає, що активна світла тема) */
+    -fx-background-color: -fx-palette-light-theme-primary; /* Фон (основний колір світлої теми, змінна) */
+    -fx-text-fill: -fx-palette-black; /* Колір тексту (чорний, змінна) */
+    -fx-border-color: transparent; /* Прозора рамка */
+}
+
+#themeToggleButton:selected .ikonli-font-icon,
+.theme-toggle-nav-button:selected .ikonli-font-icon { /* Іконка вибраної кнопки */
+    -fx-icon-color: -fx-palette-black; /* Колір іконки (чорний, змінна) */
+}
+
+#themeToggleButton:selected:hover, .theme-toggle-nav-button:selected:hover { /* Вибрана кнопка при наведенні */
+    -fx-background-color: derive(-fx-palette-light-theme-primary, -10%); /* Фон трохи темніший (змінна) */
+}

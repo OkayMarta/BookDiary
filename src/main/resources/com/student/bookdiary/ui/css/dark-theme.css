@@ -1,0 +1,213 @@
+.root {
+    /* ==========================================================================
+       Перевизначення семантичних кольорів для ТЕМНОЇ ТЕМИ.
+       Цей блок .root буде завантажений, коли активна темна тема.
+       ========================================================================== */
+
+    /* Основний колір темної теми (палітра) */
+    -fx-palette-dark-theme-primary: #3E2C23; /* Темно-коричневий */
+
+    /* --- Загальні акцентні кольори для темної теми --- */
+    -fx-app-accent-color-1: #AA8F76; /* Акцентний колір 1 (світло-коричневий/бежевий) */
+    -fx-app-accent-color-2: #AA8F76; /* Акцентний колір 2 (такий самий) */
+
+    /* --- Текст на загальних акцентних кольорах (для темної теми) --- */
+    -fx-app-text-on-accent-1: #000000; /* Чорний текст на світлому акцентному фоні */
+    -fx-app-text-on-accent-2: #000000; /* Чорний текст на світлому акцентному фоні */
+
+    /* --- Фони --- */
+    -fx-app-background-primary: -fx-palette-dark-theme-primary; /* Основний фон: темно-коричневий */
+    -fx-app-background-secondary: derive(-fx-palette-dark-theme-primary, 10%); /* Вторинний фон: трохи світліший від основного */
+    -fx-app-background-content-area: -fx-palette-dark-theme-primary; /* Фон для областей контенту: такий самий, як основний */
+    -fx-app-background-card: #AA8F76; /* Фон для карток: світло-коричневий/бежевий (акцентний) */
+    -fx-app-background-dialog: derive(-fx-palette-dark-theme-primary, 8%); /* Фон для діалогових вікон: трохи світліший від основного */
+    -fx-app-background-input: derive(-fx-palette-dark-theme-primary, 5%); /* Фон для полів вводу: трохи світліший від основного */
+    -fx-app-background-input-disabled: derive(-fx-palette-dark-theme-primary, -5%); /* Фон для неактивних полів вводу: трохи темніший від основного */
+
+    /* --- Текст --- */
+    -fx-app-text-color-primary: #FFFFFF; /* Основний колір тексту: білий */
+    -fx-app-text-color-secondary: #FFFFFF; /* Вторинний колір тексту: білий (можна зробити derive(#FFFFFF, -15%)) */
+    -fx-app-text-color-muted: derive(#FFFFFF, 45%); /* Приглушений колір тексту: світло-сірий (на 45% темніший від білого, тобто сіріший) */
+    -fx-app-text-color-on-dark-bg: #FFFFFF; /* Колір тексту на темному фоні: білий */
+    -fx-app-text-color-link: #FFFFFF; /* Колір посилань: білий */
+    -fx-app-text-color-link-hover: derive(#FFFFFF, 20%); /* Колір посилань при наведенні: трохи темніший білий (сіріший) */
+    -fx-app-text-color-placeholder: derive(#FFFFFF, 50%); /* Колір тексту-підказки: середньо-сірий */
+    -fx-app-text-color-error: #C62828; /* Колір тексту для помилок: темно-червоний */
+    -fx-app-text-color-success: #B9F6CA; /* Колір тексту для успіху: світло-зелений */
+
+    /* --- Рамки --- */
+    -fx-app-border-color-standard: #FFFFFF; /* Стандартний колір рамки: білий */
+    -fx-app-border-color-strong: derive(#FFFFFF, 15%); /* Посилений колір рамки: трохи темніший білий (сіріший) */
+    -fx-app-border-color-input: #FFFFFF; /* Колір рамки для полів вводу: білий */
+    -fx-app-border-color-input-focused: #FFFFFF; /* Колір рамки для полів вводу у фокусі: білий */
+
+    /* --- Кнопки --- */
+    /* CTA кнопка (заклик до дії) */
+    -fx-app-button-cta-background: #AA8F76; /* Фон: світло-коричневий/бежевий */
+    -fx-app-button-cta-text: #000000; /* Текст: чорний */
+    -fx-app-button-cta-background-hover: derive(#AA8F76, -10%); /* Фон при наведенні: темніший */
+    -fx-app-button-cta-border-color: transparent; /* Без рамки */
+
+    /* Акцентна кнопка */
+    -fx-app-button-accent-background: #AA8F76; /* Фон: світло-коричневий/бежевий */
+    -fx-app-button-accent-text: #000000; /* Текст: чорний */
+    -fx-app-button-accent-background-hover: derive(#AA8F76, -10%); /* Фон при наведенні: темніший */
+    -fx-app-button-accent-border-color: transparent; /* Без рамки */
+
+    /* Другорядна кнопка */
+    -fx-app-button-secondary-background: #FFFFFF; /* Фон: білий */
+    -fx-app-button-secondary-text: #AA8F76; /* Текст: світло-коричневий/бежевий */
+    -fx-app-button-secondary-background-hover: derive(#FFFFFF, 10%); /* Фон при наведенні: трохи темніший білий (сіріший) */
+    -fx-app-button-secondary-border-color: transparent; /* Без рамки */
+
+    /* Кнопка небезпеки */
+    -fx-app-button-danger-background: #C62828; /* Фон: темно-червоний */
+    -fx-app-button-danger-text: #FFFFFF; /* Текст: білий */
+    -fx-app-button-danger-background-hover: derive(#C62828, 10%); /* Фон при наведенні: світліший червоний */
+    -fx-app-button-danger-border-color: transparent; /* Без рамки */
+
+    /* --- Зірочки рейтингу --- */
+    -fx-app-rating-star-filled-color: #000000; /* Заповнена зірочка: чорна (для світлого фону картки) */
+    -fx-app-rating-star-empty-color: rgba(0, 0, 0, 0.5); /* Порожня зірочка: напівпрозора чорна */
+
+    /* --- Перевизначення тіней (можуть бути інтенсивнішими на темному фоні) --- */
+    -fx-app-shadow-small: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0, 0, 1); /* Маленька тінь */
+    -fx-app-shadow-medium: dropshadow(gaussian, rgba(0,0,0,0.4), 8, 0, 0, 2); /* Середня тінь */
+    -fx-app-shadow-large: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0, 0, 3); /* Велика тінь */
+
+    /* === ПЕРЕВИЗНАЧЕННЯ ЗМІННИХ ДЛЯ ТЕКСТУ ТА ЕЛЕМЕНТІВ НА КАРТЦІ (ТЕМНА ТЕМА) === */
+    /* Оскільки фон картки (-fx-app-background-card) тепер #AA8F76 (світлий), текст на ньому має бути темним */
+    -fx-app-tile-text-primary: #000000;     /* Основний текст на плитці: чорний */
+    -fx-app-tile-text-secondary: #000000;   /* Вторинний текст на плитці: чорний */
+    -fx-app-tile-text-muted: #000000;       /* Приглушений текст на плитці: чорний (можливо, варто зробити derive(#000000, 50%) для сірого) */
+
+    -fx-app-tile-star-filled-color: #000000; /* Заповнена зірочка на плитці: чорна */
+    -fx-app-tile-star-empty-color: rgba(0, 0, 0, 0.5); /* Порожня зірочка на плитці: напівпрозора чорна */
+
+    -fx-app-tile-button-text-color: #000000; /* Текст кнопки на плитці: чорний */
+    -fx-app-tile-button-background-color: transparent; /* Фон кнопки на плитці: прозорий */
+    -fx-app-tile-button-border-color: #000000; /* Рамка кнопки на плитці: чорна */
+    -fx-app-tile-button-hover-background-color: rgba(0, 0, 0, 0.1); /* Фон кнопки при наведенні: ледь помітний чорний */
+
+    -fx-app-tile-favorite-icon-color: #000000; /* Колір іконки "Обране" на плитці: чорний */
+
+    /* Перевизначення змінних для компонентів у темній темі */
+
+    /* --- DatePicker --- */
+    -fx-app-datepicker-background: -fx-app-background-input; /* Фон: як у полів вводу */
+    -fx-app-datepicker-border-color: -fx-app-accent-color-1; /* Рамка: акцентний колір */
+    -fx-app-datepicker-text-color: -fx-app-text-color-primary; /* Текст: білий */
+    -fx-app-datepicker-arrow-color: -fx-app-accent-color-1; /* Стрілка: акцентний колір */
+
+    -fx-app-datepicker-popup-background: -fx-app-background-primary; /* Фон спливаючого вікна: основний фон темної теми */
+    -fx-app-datepicker-popup-border-color: -fx-app-accent-color-1; /* Рамка спливаючого вікна: акцентний колір */
+    -fx-app-datepicker-header-background: -fx-app-accent-color-1; /* Фон заголовка календаря: акцентний колір */
+    -fx-app-datepicker-header-text-color: -fx-app-text-on-accent-1; /* Текст заголовка календаря: чорний */
+
+    -fx-app-datepicker-day-cell-background: transparent; /* Фон комірки дня: прозорий */
+    -fx-app-datepicker-day-cell-text-color: -fx-app-text-color-primary; /* Текст комірки дня: білий */
+    -fx-app-datepicker-day-cell-hover-background: derive(-fx-app-background-primary, 10%); /* Фон комірки при наведенні: світліший від основного */
+    -fx-app-datepicker-day-cell-hover-text-color: -fx-app-text-color-primary; /* Текст комірки при наведенні: білий */
+    -fx-app-datepicker-day-cell-selected-background: -fx-app-accent-color-1; /* Фон вибраної комірки: акцентний колір */
+    -fx-app-datepicker-day-cell-selected-text-color: -fx-app-text-on-accent-1; /* Текст вибраної комірки: чорний */
+    -fx-app-datepicker-day-cell-today-border-color: -fx-app-accent-color-1; /* Рамка поточного дня: акцентний колір */
+
+    /* --- Spinner (лічильник) --- */
+    -fx-app-spinner-background: -fx-app-background-input; /* Фон: як у полів вводу */
+    -fx-app-spinner-border-color: -fx-app-border-color-input; /* Рамка: біла */
+    -fx-app-spinner-text-color: -fx-app-text-color-primary; /* Текст: білий */
+    -fx-app-spinner-arrow-button-background: derive(-fx-app-background-input, 5%); /* Фон кнопок зі стрілками: світліший від фону вводу */
+    -fx-app-spinner-arrow-button-hover-background: derive(-fx-app-background-input, 10%); /* Фон кнопок при наведенні: ще світліший */
+    -fx-app-spinner-arrow-color: -fx-app-text-color-secondary; /* Колір стрілок: білий (вторинний) */
+
+    /* --- Tooltip (спливаюча підказка) --- */
+    -fx-app-tooltip-background: derive(-fx-app-background-primary, 15%); /* Фон: світліший від основного фону темної теми */
+    -fx-app-tooltip-text-color: -fx-app-text-color-primary; /* Текст: білий */
+    -fx-app-tooltip-border-color: derive(-fx-app-background-primary, 25%); /* Рамка: ще світліша */
+
+    /* --- Компонент статистики (темна тема) --- */
+    -fx-app-stats-card-background: derive(-fx-app-background-primary, 5%); /* Фон картки: світліший від основного */
+    -fx-app-stats-card-border-color: derive(-fx-app-background-primary, 15%); /* Рамка картки: ще світліша */
+    -fx-app-stats-card-border-hover: -fx-app-accent-color-1; /* Рамка картки при наведенні: акцентний колір */
+
+    -fx-app-stats-progress-background: derive(-fx-app-background-primary, -5%); /* Фон доріжки прогресу: темніший від основного */
+    -fx-app-stats-progress-bar-color: -fx-app-accent-color-1; /* Колір заповненої частини прогресу: акцентний */
+    -fx-app-stats-progress-completed-color: #AA8F76; /* Колір завершеного прогресу: такий самий, як акцентний */
+
+    -fx-app-stats-divider-color: #FFFFFF; /* Колір розділювача: білий */
+
+    -fx-app-stats-block-label-color: -fx-app-text-color-primary; /* Текст мітки блоку: білий */
+    -fx-app-stats-block-value-color: -fx-app-accent-color-1; /* Текст значення блоку: акцентний */
+    -fx-app-stats-block-border-color: -fx-app-accent-color-1; /* Рамка блоку: акцентний */
+
+    /* --- Цілі та Статистика (темна тема) --- */
+    -fx-app-goal-card-background: -fx-app-accent-color-1; /* Фон картки цілі: акцентний (світлий) */
+    -fx-app-goal-card-text-color: -fx-app-text-on-accent-1; /* Текст на картці цілі: чорний */
+    -fx-app-goal-card-achieved-text-color: derive(-fx-app-text-color-success, -20%); /* Текст досягнутої цілі: темніший зелений */
+
+    -fx-app-goal-card-button-text-color: -fx-app-text-on-accent-1; /* Текст кнопки на картці цілі: чорний */
+    -fx-app-goal-card-button-hover-background: derive(-fx-app-accent-color-1, -20%); /* Фон кнопки при наведенні: темніший акцентний */
+
+    /* Наступні змінні для статистики в контексті цілей, можуть бути такими ж, як вище */
+    -fx-app-stats-divider-color: -fx-app-text-color-primary; /* Розділювач: білий */
+    -fx-app-stats-card-background: derive(-fx-app-background-primary, 5%); /* Фон картки статистики: світліший від основного */
+    -fx-app-stats-progress-background: derive(-fx-app-background-primary, -5%); /* Фон доріжки прогресу: темніший від основного */
+    -fx-app-stats-progress-bar-color: -fx-app-accent-color-1; /* Колір прогресу: акцентний */
+    -fx-app-stats-progress-completed-color: derive(-fx-app-text-color-success, -20%); /* Колір завершеного прогресу: темніший зелений */
+}
+
+/* Стилі для карток в темній темі.
+   Цей клас .card є загальним, тому якщо він застосовується до елементів, що НЕ є book-tile,
+   і для них потрібен інший фон, то ці стилі можуть конфліктувати.
+   Якщо .card це те ж саме, що .book-tile, то фон вже визначений через -fx-app-background-card. */
+.card { /* Загальний стиль для карток */
+    -fx-background-color: #AA8F76; /* Фон: світло-коричневий/бежевий (як -fx-app-background-card) */
+    -fx-effect: -fx-app-shadow-small; /* Тінь: маленька (змінна темної теми) */
+    -fx-background-radius: 8px; /* Радіус заокруглення фону */
+    -fx-border-radius: 8px; /* Радіус заокруглення рамки */
+}
+
+.card:hover {
+    -fx-effect: -fx-app-shadow-medium; /* Тінь при наведенні: середня (змінна темної теми) */
+}
+
+
+/* Стилі для зірочок рейтингу на плитці книги (специфічно для темної теми, якщо потрібно перевизначити)
+   Ці стилі базуються на тому, що фон плитки (.book-tile) світлий (#AA8F76) */
+.book-tile-star-filled { /* Заповнена зірочка */
+    -fx-text-fill: #000000; /* Чорна */
+}
+
+.book-tile-star-empty { /* Порожня зірочка */
+    -fx-text-fill: rgba(0, 0, 0, 0.5); /* Напівпрозора чорна */
+}
+
+/* Кнопка "Прочитано!" на плитці книги (для Списку бажань, темна тема)
+   Ці стилі припускають, що фон плитки .book-tile світлий (#AA8F76) */
+.book-tile-mark-read-button {
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-text-fill: #000000; /* Чорний текст */
+    -fx-font-size: 12px; /* Розмір шрифту */
+    -fx-font-weight: 500; /* Насиченість: medium */
+    -fx-pref-height: 28px; /* Бажана висота */
+    -fx-border-color: #000000; /* Чорна рамка */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+}
+
+.book-tile-mark-read-button:hover {
+    -fx-background-color: #3E2C23; /* Фон при наведенні: темно-коричневий (основний фон темної теми) */
+    -fx-text-fill: #F5EFE6; /* Текст при наведенні: світлий (майже білий) */
+}
+
+.book-tile-mark-read-button:pressed { /* Те ж саме, що й hover, для простоти */
+    -fx-background-color: #3E2C23;
+    -fx-text-fill: #F5EFE6;
+}
+
+/* Стилі для діалогового вікна "Про програму" (About Dialog Pane) в темній темі */
+.about-dialog-pane {
+    -fx-background-color: #3E2C23; /* Фон: темно-коричневий (основний фон темної теми) */
+    /* Інші стилі (текст, кнопки) будуть успадковані або визначені через змінні */
+}

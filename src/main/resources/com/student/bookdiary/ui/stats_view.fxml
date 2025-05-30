@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Головний контейнер для відображення статистики -->
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.student.bookdiary.ui.StatsController"
+      styleClass="stats-root"
+      stylesheets="@css/components/goals-stats.css, @css/components/stats-view.css">
+    <children>
+        <!-- Заголовки сторінки -->
+        <Label text="Статистика" styleClass="stats-title"/>
+        <Label text="Виберіть дату" styleClass="stats-subtitle"/>
+        
+        <!-- Панель вибору періоду -->
+        <HBox styleClass="stats-date-row">
+            <children>
+                <!-- Випадаючі списки для вибору місяця та року -->
+                <ComboBox fx:id="monthComboBox" styleClass="filter-combo-box" prefWidth="150.0" />
+                <ComboBox fx:id="yearComboBox" styleClass="filter-combo-box" prefWidth="120.0" />
+            </children>
+        </HBox>
+        
+        <!-- Розділювач між вибором дати та блоками статистики -->
+        <Region styleClass="stats-divider">
+            <VBox.margin>
+                <Insets top="0" right="0" bottom="24" left="0"/>
+            </VBox.margin>
+        </Region>
+        
+        <!-- Контейнер для блоків статистики -->
+        <VBox styleClass="stats-blocks" spacing="36">
+            <children>
+                <!-- Блок статистики за місяць -->
+                <VBox styleClass="stats-block">
+                    <Label text="В обраному місяці книг прочитано:" styleClass="stats-block-label"/>
+                    <Label fx:id="booksReadInMonthLabel" styleClass="stats-block-value"/>
+                </VBox>
+                
+                <!-- Блок статистики за рік -->
+                <VBox styleClass="stats-block">
+                    <Label text="В обраному році книг прочитано:" styleClass="stats-block-label"/>
+                    <Label fx:id="booksReadInYearLabel" styleClass="stats-block-value"/>
+                </VBox>
+                
+                <!-- Блок загальної статистики -->
+                <VBox styleClass="stats-block">
+                    <Label text="Всього книг прочитано:" styleClass="stats-block-label"/>
+                    <Label fx:id="totalBooksReadLabel" styleClass="stats-block-value"/>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</VBox>

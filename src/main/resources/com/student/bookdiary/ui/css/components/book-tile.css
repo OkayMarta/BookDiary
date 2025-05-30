@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Головний контейнер плитки книги (елемент VBox з класом .book-tile)
+   ========================================================================== */
+.book-tile {
+    -fx-background-color: #AA8F76; /* ФІКСОВАНИЙ КОЛІР ФОНУ */
+    -fx-background-radius: 8px;    /* Радіус заокруглення фону */
+    -fx-padding: 16px;             /* Внутрішні відступи */
+    -fx-spacing: 12px;             /* Відстань між дочірніми елементами всередині VBox */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 2); /* Ефект тіні */
+    -fx-cursor: hand;              /* Тип курсора "рука" при наведенні */
+    -fx-alignment: TOP_CENTER;     /* Вирівнювання вмісту по верхньому краю та по центру (змінено для кращого контролю висоти) */
+    /* Для розтягування основного контенту, використовуйте VBox.vgrow="ALWAYS" для detailsContainer або проміжного Pane всередині плитки */
+}
+
+.book-tile:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 12, 0, 0, 4); /* Посилений ефект тіні при наведенні */
+    /* Можна прибрати рамку при наведенні, якщо фон фіксований,
+       або зробити її кольором, що залежить від теми, якщо потрібно
+       -fx-border-color: -fx-app-tile-button-border-color; */
+    -fx-border-color: transparent; /* Наприклад, прозора рамка при наведенні, щоб не змінювати розмір */
+    -fx-border-width: 1px;         /* Товщина рамки (навіть якщо прозора, може впливати на розрахунок розміру) */
+    -fx-border-radius: 8px;        /* Радіус заокруглення рамки */
+}
+
+/* ==========================================================================
+   Обкладинка книги (елемент ImageView з класом .book-tile-cover)
+   ========================================================================== */
+.book-tile-cover {
+    -fx-background-radius: 4px;    /* Радіус заокруглення фону (якщо ImageView має фон, зазвичай ні) */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0, 0, 2); /* Ефект тіні для обкладинки */
+    -fx-alignment: CENTER;         /* Вирівнювання зображення по центру (якщо ImageView більший за зображення) */
+}
+
+
+/* ==========================================================================
+   Текстові елементи всередині плитки
+   ========================================================================== */
+.book-tile-title { /* Заголовок/назва книги */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 1.2em;          /* Розмір шрифту (відносний, 1.2 від базового) */
+    -fx-font-weight: bold;         /* Жирний шрифт */
+    -fx-text-fill: -fx-app-tile-text-secondary; /* ВИКОРИСТОВУЄМО ЗМІННУ для кольору тексту */
+    -fx-wrap-text: true;           /* Увімкнути перенос тексту */
+    -fx-alignment: CENTER;         /* Вирівнювання контейнера тексту (якщо це Label) */
+    -fx-text-alignment: CENTER;    /* Вирівнювання самого тексту всередині контейнера */
+    -fx-max-width: Infinity;       /* Дозволити тексту займати всю доступну ширину */
+    -fx-pref-width: Infinity;      /* Бажана ширина - вся доступна */
+}
+
+.book-tile-author { /* Автор книги */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 1em;            /* Розмір шрифту (базовий) */
+    -fx-text-fill: -fx-app-tile-text-primary; /* ВИКОРИСТОВУЄМО ЗМІННУ для кольору тексту */
+    -fx-wrap-text: true;           /* Увімкнути перенос тексту */
+    -fx-alignment: CENTER;         /* Вирівнювання контейнера тексту */
+    -fx-text-alignment: CENTER;    /* Вирівнювання самого тексту */
+    -fx-font-weight: bold;         /* Жирний шрифт */
+}
+
+.book-tile-date { /* Дата (наприклад, дата прочитання) */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 1em;            /* Розмір шрифту (базовий) */
+    -fx-text-fill: -fx-app-tile-text-muted; /* ВИКОРИСТОВУЄМО ЗМІННУ для приглушеного кольору тексту */
+    -fx-alignment: CENTER;         /* Вирівнювання контейнера тексту */
+}
+
+/* ==========================================================================
+   Рейтинг (контейнер HBox з класом .book-tile-rating-box)
+   ========================================================================== */
+.book-tile-rating-box {
+    -fx-alignment: CENTER; /* Забезпечуємо центрування зірочок всередині HBox */
+    -fx-spacing: 2px;      /* Відстань між зірочками */
+}
+
+.book-tile-star-filled { /* Заповнена зірочка рейтингу */
+    -fx-text-fill: -fx-app-rating-star-filled-color; /* Колір заповненої зірочки (змінна) */
+    -fx-font-size: 14px;   /* Розмір шрифту/іконки зірочки */
+}
+
+.book-tile-star-empty { /* Порожня зірочка рейтингу */
+    -fx-text-fill: -fx-app-rating-star-empty-color; /* Колір порожньої зірочки (змінна) */
+    -fx-font-size: 14px;   /* Розмір шрифту/іконки зірочки */
+}
+
+.book-tile-no-rating { /* Текст, що відображається, коли рейтинг не вказано */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 14px;   /* Розмір шрифту */
+    -fx-font-style: italic;/* Курсивний стиль */
+    -fx-text-fill: -fx-app-tile-text-muted; /* ВИКОРИСТОВУЄМО ЗМІННУ для приглушеного кольору тексту */
+    -fx-alignment: CENTER_LEFT; /* Вирівнювання по центру зліва (якщо це Label в контейнері) */
+}
+
+
+/* ==========================================================================
+   Кнопки дій на плитці
+   ========================================================================== */
+
+/* Базовий клас для всіх маленьких кнопок на плитці - може не знадобитися, якщо стилі індивідуальні */
+/* .book-tile-action-button-base { ... } */
+
+/* Кнопка "Прочитано!" (наприклад, для книг зі списку бажань) */
+.book-tile-mark-read-button {
+    -fx-background-color: -fx-app-tile-button-background-color; /* ВИКОРИСТОВУЄМО ЗМІННУ для фону кнопки */
+    -fx-text-fill: -fx-app-tile-button-text-color;         /* ВИКОРИСТОВУЄМО ЗМІННУ для кольору тексту кнопки */
+    -fx-font-size: 14px;   /* Розмір шрифту */
+    -fx-font-weight: 500;  /* Напівжирний шрифт (medium) */
+    -fx-pref-height: 28px; /* Бажана висота кнопки */
+    -fx-border-color: -fx-app-tile-button-border-color;    /* ВИКОРИСТОВУЄМО ЗМІННУ для кольору рамки кнопки */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px;/* Радіус заокруглення рамки */
+    -fx-background-radius: 4px;/* Радіус заокруглення фону */
+}
+
+.book-tile-mark-read-button:hover {
+    -fx-background-color: -fx-app-tile-button-hover-background-color; /* ВИКОРИСТОВУЄМО ЗМІННУ для фону кнопки при наведенні */
+}
+
+.book-tile-mark-read-button:pressed {
+    /* Можна зробити фон трохи темнішим/світлішим від стану hover */
+    -fx-background-color: derive(-fx-app-tile-button-hover-background-color, -10%); /* Фон при натисканні (темніший від hover) */
+}
+
+/* Кнопка "Улюблене" (іконка сердечка) - для іконки, що задається як графічний файл (PNG, SVG), колір самої іконки тут не керується */
+.book-tile-favorite-button {
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-padding: 4px;              /* Внутрішні відступи навколо іконки */
+    -fx-cursor: hand;              /* Тип курсора "рука" */
+    -fx-background-radius: 4px;    /* Радіус заокруглення фону (для hover ефекту) */
+    -fx-border-width: 0;           /* Без рамки */
+    -fx-border-color: transparent; /* Колір рамки (прозорий) */
+}
+
+.book-tile-favorite-button:hover {
+    -fx-background-color: -fx-app-tile-button-hover-background-color; /* Фон при наведенні (змінна) */
+    -fx-padding: 4px; /* Збереження відступів */
+}
+
+.book-tile-favorite-button:pressed {
+    -fx-background-color: derive(-fx-app-tile-button-hover-background-color, -10%); /* Фон при натисканні (темніший від hover) */
+    -fx-padding: 4px; /* Збереження відступів */
+}

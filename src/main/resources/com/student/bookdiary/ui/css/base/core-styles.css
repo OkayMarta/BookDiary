@@ -1,0 +1,493 @@
+/* ==========================================================================
+   1. Базові стилі для кореневого елемента та тексту
+   ========================================================================== */
+.root {
+    -fx-background-color: -fx-app-background-primary; /* Основний колір фону програми */
+    -fx-font-family: -fx-app-font-family-primary, -fx-app-font-family-secondary; /* Основний та резервний шрифти для програми */
+    -fx-font-size: 14px; /* Базовий розмір шрифту */
+    -fx-text-fill: -fx-app-text-color-primary; /* Загальний колір тексту для кореневого елемента */
+}
+
+.label {
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір тексту для міток */
+    -fx-padding: 4px 0px; /* Невеликий вертикальний відступ для міток */
+}
+
+.label:disabled {
+    -fx-text-fill: -fx-app-text-color-muted; /* Колір тексту для неактивних (disabled) міток */
+}
+
+
+/* ==========================================================================
+   2. Стилі для кнопок
+   ========================================================================== */
+.button {
+    -fx-background-color: -fx-app-button-secondary-background; /* Колір фону для стандартних кнопок */
+    -fx-text-fill: -fx-app-button-secondary-text; /* Колір тексту на стандартних кнопках */
+    -fx-font-size: 14px; /* Розмір шрифту для кнопок */
+    -fx-font-weight: 400; /* Насиченість шрифту для кнопок */
+    -fx-padding: 8px 16px; /* Внутрішні відступи для кнопок */
+    -fx-border-color: -fx-app-button-secondary-border-color; /* Колір рамки для стандартних кнопок */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-cursor: hand; /* Тип курсора при наведенні на кнопку */
+}
+
+.button:hover {
+    -fx-background-color: -fx-app-button-secondary-background-hover; /* Колір фону кнопки при наведенні */
+}
+
+.button:pressed, .button:armed {
+    -fx-background-color: derive(-fx-app-button-secondary-background-hover, -10%); /* Колір фону кнопки при натисканні (трохи темніший від hover) */
+}
+
+.button:disabled {
+    -fx-opacity: 0.6; /* Прозорість для неактивної кнопки */
+    -fx-cursor: default; /* Стандартний тип курсора для неактивної кнопки */
+}
+
+/* Стилі для ToggleButton (перемикач) */
+.toggle-button {
+    -fx-background-color: -fx-app-button-secondary-background; /* Колір фону для кнопки-перемикача */
+    -fx-text-fill: -fx-app-button-secondary-text; /* Колір тексту на кнопці-перемикачі */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-font-weight: 400; /* Насиченість шрифту */
+    -fx-padding: 8px 16px; /* Внутрішні відступи */
+    -fx-border-color: -fx-app-button-secondary-border-color; /* Колір рамки */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-cursor: hand; /* Тип курсора */
+}
+.toggle-button:hover {
+    -fx-background-color: -fx-app-button-secondary-background-hover; /* Колір фону при наведенні */
+}
+.toggle-button:selected {
+    -fx-background-color: -fx-app-accent-color-1; /* Колір фону для вибраної кнопки-перемикача (акцентний колір) */
+    -fx-text-fill: -fx-app-text-color-on-accent; /* Колір тексту на вибраній кнопці-перемикачі */
+    -fx-border-color: transparent; /* Можна прибрати рамку для вибраної кнопки */
+}
+.toggle-button:selected:hover {
+    -fx-background-color: -fx-app-accent-color-1-darker; /* Колір фону для вибраної кнопки-перемикача при наведенні (темніший акцентний) */
+}
+
+/* ==========================================================================
+   3. Стилі для полів вводу (TextField, TextArea)
+   ========================================================================== */
+.text-field,
+.text-area {
+    -fx-background-color: -fx-app-background-input; /* Колір фону для полів вводу */
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір введеного тексту */
+    -fx-prompt-text-fill: -fx-app-text-color-placeholder; /* Колір тексту-підказки (placeholder) */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-border-color: -fx-app-border-color-input; /* Колір рамки */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-padding: 8px; /* Внутрішні відступи */
+    -fx-highlight-fill: -fx-app-accent-color-1; /* Колір фону для виділеного тексту */
+    -fx-highlight-text-fill: -fx-app-text-on-accent-1; /* Колір виділеного тексту */
+}
+
+.text-field:focused,
+.text-area:focused {
+    -fx-border-color: -fx-app-border-color-input-focused; /* Колір рамки при фокусі на полі вводу */
+    -fx-background-insets: 0; /* Для деяких тем може знадобитися для коректного відображення фону при фокусі */
+}
+
+.text-area {
+    -fx-wrap-text: true; /* Ввімкнути перенос тексту в TextArea */
+}
+.text-area .content { /* Стилізація внутрішнього контейнера TextArea для контенту */
+    -fx-background-color: -fx-app-background-input; /* Фон для текстового вмісту, щоб відповідав фону TextArea */
+}
+
+.text-field:disabled,
+.text-area:disabled {
+    -fx-opacity: 0.7; /* Прозорість для неактивних полів вводу */
+    -fx-background-color: -fx-app-background-input-disabled; /* Колір фону для неактивних полів вводу */
+}
+
+
+/* ==========================================================================
+   4. Стилі для ComboBox (випадаючий список)
+   ========================================================================== */
+.combo-box-base { /* Базовий стиль для ComboBox */
+    -fx-background-color: #AA8F76; /* Колір фону */
+    -fx-text-fill: #FFFFFF; /* Колір тексту вибраного елемента */
+    -fx-border-color: #AA8F76; /* Колір рамки */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-padding: 0px; /* Внутрішні відступи (тут нульові, регулюються іншими елементами) */
+    -fx-font-size: 14px; /* Розмір шрифту */
+}
+
+.combo-box-base:hover {
+    -fx-border-color: #997f6c; /* Колір рамки при наведенні */
+}
+
+.combo-box .list-cell { /* Стилі для елементів у випадаючому списку */
+    -fx-background-color: #FFFFFF; /* Колір фону елемента списку */
+    -fx-text-fill: #333333; /* Колір тексту елемента списку */
+    -fx-padding: 8px; /* Внутрішні відступи елемента списку */
+    -fx-font-size: 14px; /* Розмір шрифту елемента списку */
+}
+
+.combo-box .list-cell:filled:hover { /* Стилі для заповненого елемента списку при наведенні */
+    -fx-background-color: #F0F0F0; /* Колір фону при наведенні */
+    -fx-text-fill: #333333; /* Колір тексту при наведенні */
+}
+
+.combo-box .arrow-button { /* Кнопка зі стрілкою для відкриття списку */
+    -fx-background-color: transparent; /* Прозорий фон кнопки */
+    -fx-padding: 0px 8px 0px 0px; /* Відступи для кнопки стрілки (справа) */
+}
+
+.combo-box .arrow { /* Сама стрілка */
+    -fx-background-color: #FFFFFF; /* Колір стрілки */
+    -fx-shape: "M0,0 L1,0 L0.5,0.5 Z"; /* Форма стрілки (трикутник вниз) */
+    -fx-padding: 3px; /* Внутрішні відступи для стрілки, впливають на її розмір */
+}
+
+.combo-box:editable .text-field { /* Стиль текстового поля в редагованому ComboBox */
+    -fx-border-width: 0; /* Прибрати рамку текстового поля всередині ComboBox */
+    -fx-padding: 8px; /* Внутрішні відступи текстового поля */
+}
+
+.combo-box:disabled {
+    -fx-opacity: 0.7; /* Прозорість для неактивного ComboBox */
+    -fx-background-color: #F5F5F5; /* Колір фону неактивного ComboBox */
+}
+
+/* ==========================================================================
+   5. Стилі для ScrollPane та ScrollBar (панель прокрутки та смуги прокрутки)
+   ========================================================================== */
+.scroll-pane {
+    -fx-background-color: transparent; /* Прозорий фон для ScrollPane */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+    -fx-padding: 0; /* Нульові внутрішні відступи */
+}
+
+.scroll-pane > .viewport { /* Область перегляду всередині ScrollPane */
+    -fx-background-color: transparent; /* Прозорий фон для області перегляду */
+}
+
+/* Загальні стилі для фону доріжки ScrollBar */
+.scroll-bar:vertical > .track-background,
+.scroll-bar:horizontal > .track-background {
+    -fx-background-color: derive(-fx-app-background-primary, 5%); /* Колір фону доріжки (трохи світліший від основного фону) */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+    -fx-border-radius: 2px; /* Радіус заокруглення */
+}
+
+/* Загальні стилі для самої доріжки ScrollBar */
+.scroll-bar:vertical > .track,
+.scroll-bar:horizontal > .track {
+    -fx-background-color: derive(-fx-app-background-secondary, -5%); /* Колір доріжки (трохи темніший від вторинного фону) */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+    -fx-border-radius: 2px; /* Радіус заокруглення */
+}
+
+/* Стилі для повзунка (thumb) ScrollBar */
+.scroll-bar:vertical > .thumb,
+.scroll-bar:horizontal > .thumb {
+    -fx-background-color: -fx-app-accent-color-1; /* Колір повзунка (акцентний) */
+    -fx-background-insets: 2px; /* Внутрішні відступи фону повзунка */
+    -fx-background-radius: 3px; /* Радіус заокруглення повзунка */
+    -fx-pref-width: 12px; /* Бажана ширина для вертикального повзунка (також впливає на горизонтальний, якщо не перевизначено) */
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 12px; /* Збільшена бажана ширина для вертикальної смуги прокрутки */
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 12px; /* Збільшена бажана висота для горизонтальної смуги прокрутки */
+}
+
+/* Стилі для повзунка ScrollBar при наведенні */
+.scroll-bar:vertical > .thumb:hover,
+.scroll-bar:horizontal > .thumb:hover {
+    -fx-background-color: derive(-fx-app-accent-color-1, -10%); /* Колір повзунка при наведенні (трохи темніший) */
+}
+
+/* Стилі для повзунка ScrollBar при натисканні */
+.scroll-bar:vertical > .thumb:pressed,
+.scroll-bar:horizontal > .thumb:pressed {
+    -fx-background-color: derive(-fx-app-accent-color-1, -20%); /* Колір повзунка при натисканні (ще темніший) */
+}
+
+/* Кнопки збільшення/зменшення (стрілки) на ScrollBar */
+.scroll-bar > .increment-button,
+.scroll-bar > .decrement-button {
+    -fx-background-color: transparent; /* Прозорий фон кнопок */
+    -fx-background-radius: 0; /* Нульовий радіус заокруглення */
+    -fx-padding: 5; /* Внутрішні відступи */
+}
+
+/* Стилі для самих стрілок всередині кнопок */
+.scroll-bar > .increment-button > .increment-arrow,
+.scroll-bar > .decrement-button > .decrement-arrow {
+    -fx-background-color: -fx-app-text-color-primary; /* Колір стрілок (основний колір тексту) */
+    -fx-shape: "M 0 -2.5 L 5 2.5 L -5 2.5 Z"; /* Форма стрілки (трикутник) */
+    -fx-padding: 3px; /* Внутрішні відступи для стрілки, впливають на її розмір */
+}
+
+/* Поворот стрілок для різних напрямків ScrollBar */
+.scroll-bar:vertical > .increment-button > .increment-arrow { /* Стрілка "вниз" для вертикальної смуги */
+    -fx-rotate: 0; /* Стандартний напрямок (вниз, якщо форма трикутника відповідна) */
+}
+
+.scroll-bar:vertical > .decrement-button > .decrement-arrow { /* Стрілка "вверх" для вертикальної смуги */
+    -fx-rotate: 180; /* Поворот на 180 градусів */
+}
+
+.scroll-bar:horizontal > .increment-button > .increment-arrow { /* Стрілка "вправо" для горизонтальної смуги */
+    -fx-rotate: 90; /* Поворот на 90 градусів */
+}
+
+.scroll-bar:horizontal > .decrement-button > .decrement-arrow { /* Стрілка "вліво" для горизонтальної смуги */
+    -fx-rotate: -90; /* Поворот на -90 градусів */
+}
+
+/* Приховуємо стрілки, якщо вони не потрібні (за замовчуванням JavaFX може їх показувати) */
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button,
+.scroll-bar:horizontal .increment-button,
+.scroll-bar:horizontal .decrement-button {
+    -fx-opacity: 0; /* Повна прозорість (приховування) */
+    -fx-padding: 0; /* Нульові відступи, щоб не займали місце */
+}
+
+/* Стилі для кутка, що з'являється, якщо є обидві смуги прокрутки (вертикальна та горизонтальна) */
+.scroll-pane > .corner {
+    -fx-background-color: -fx-app-background-secondary; /* Колір фону кутка (вторинний фон) */
+}
+
+/* ==========================================================================
+   6. Стилі для DatePicker (вибір дати)
+   (спадкують багато від ComboBox та TextField)
+   ========================================================================== */
+.date-picker {
+    -fx-background-color: -fx-app-datepicker-background; /* Колір фону DatePicker */
+    -fx-border-color: -fx-app-datepicker-border-color; /* Колір рамки */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+}
+
+.date-picker .text-field { /* Текстове поле всередині DatePicker */
+    -fx-background-color: transparent; /* Прозорий фон текстового поля */
+    -fx-text-fill: -fx-app-datepicker-text-color; /* Колір тексту */
+    -fx-border-width: 0; /* Нульова товщина рамки (контролюється батьківським DatePicker) */
+    -fx-padding: 8px; /* Внутрішні відступи */
+}
+
+.date-picker .arrow-button { /* Кнопка зі стрілкою для відкриття календаря */
+    -fx-background-color: transparent; /* Прозорий фон кнопки */
+    -fx-padding: 0px 8px; /* Відступи для кнопки стрілки (горизонтальні) */
+}
+
+.date-picker .arrow-button .arrow { /* Сама стрілка (іконка календаря) */
+    -fx-background-color: -fx-app-datepicker-arrow-color; /* Колір стрілки/іконки */
+    -fx-background-insets: 1; /* Внутрішні відступи фону */
+    -fx-padding: 4; /* Внутрішні відступи, впливають на розмір іконки */
+}
+
+/* Стилі для спливаючого вікна календаря (popup) */
+.date-picker-popup {
+    -fx-background-color: -fx-app-datepicker-popup-background; /* Колір фону спливаючого вікна */
+    -fx-border-color: -fx-app-datepicker-popup-border-color; /* Колір рамки спливаючого вікна */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-padding: 1; /* Невеликий внутрішній відступ */
+}
+
+/* Стилі для спіннера (вибір місяця/року) у заголовку календаря */
+.date-picker-popup > * > .spinner {
+    -fx-spacing: 0.25em; /* Відстань між елементами спіннера */
+    -fx-alignment: CENTER; /* Вирівнювання по центру */
+    -fx-fill-height: false; /* Не розтягувати по висоті */
+    -fx-background-color: -fx-app-datepicker-header-background; /* Колір фону заголовка/спіннера */
+    -fx-padding: 0.5em; /* Внутрішні відступи */
+}
+
+/* Кнопки ("<", ">") в спіннері місяця/року */
+.date-picker-popup > * > .spinner > .button {
+    -fx-background-color: transparent; /* Прозорий фон кнопок */
+    -fx-padding: 0.4em 0.7em; /* Внутрішні відступи кнопок */
+}
+
+.date-picker-popup > * > .spinner > .button:hover {
+    -fx-background-color: derive(-fx-app-datepicker-header-background, -20%); /* Колір фону кнопок при наведенні (темніший) */
+}
+
+.date-picker-popup > * > .spinner > .button:pressed {
+    -fx-background-color: derive(-fx-app-datepicker-header-background, -30%); /* Колір фону кнопок при натисканні (ще темніший) */
+}
+
+/* Відступи для лівої кнопки спіннера */
+.date-picker-popup > * > .spinner > .left-button {
+    -fx-padding: 0 0.333333em 0 0.25em;
+}
+
+/* Відступи для правої кнопки спіннера */
+.date-picker-popup > * > .spinner > .right-button {
+    -fx-padding: 0 0.25em 0 0.333333em;
+}
+
+/* Стрілки всередині кнопок спіннера */
+.date-picker-popup > * > .spinner > .button > .left-arrow,
+.date-picker-popup > * > .spinner > .button > .right-arrow {
+    -fx-background-color: -fx-app-datepicker-header-text-color; /* Колір стрілок */
+    -fx-background-insets: 1 0 -1 0, 0; /* Внутрішні відступи фону для об'єму */
+    -fx-padding: 0.333333em 0.166667em 0.333333em 0.166667em; /* Внутрішні відступи стрілок */
+    -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.3), 1, 0.0, 0, 1); /* Ефект тіні для стрілок */
+}
+
+/* Поворот правої стрілки в спіннері */
+.date-picker-popup > * > .spinner > .button > .right-arrow {
+    -fx-rotate: 180;
+}
+
+/* Мітка (назва місяця/року) в спіннері */
+.date-picker-popup > * > .spinner > .label {
+    -fx-alignment: CENTER; /* Вирівнювання по центру */
+    -fx-text-fill: -fx-app-datepicker-header-text-color; /* Колір тексту мітки */
+}
+
+/* Панель з назвою місяця та року */
+.date-picker-popup .month-year-pane {
+    -fx-background-color: -fx-app-datepicker-header-background; /* Колір фону панелі */
+    -fx-padding: 0.5em; /* Внутрішні відступи */
+    -fx-alignment: CENTER; /* Вирівнювання по центру */
+}
+
+/* Мітка (текст місяця та року) на панелі */
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: -fx-app-datepicker-header-text-color; /* Колір тексту */
+    -fx-font-size: 1.083333em; /* Розмір шрифту (трохи більший) */
+    -fx-padding: 0.25em; /* Внутрішні відступи */
+}
+
+/* Комірка з номером тижня (якщо відображається) */
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: derive(-fx-app-datepicker-day-cell-text-color, 20%); /* Колір тексту (трохи світліший від тексту дня) */
+    -fx-font-size: 0.916667em; /* Розмір шрифту (трохи менший) */
+    -fx-padding: 0.333333em; /* Внутрішні відступи */
+}
+
+/* Сітка календаря */
+.date-picker-popup .calendar-grid {
+    -fx-background-color: -fx-app-datepicker-popup-background; /* Колір фону сітки (як у popup) */
+    -fx-padding: 0; /* Нульові відступи */
+}
+
+/* Комірка дня в календарі */
+.date-picker-popup .calendar-grid .day-cell {
+    -fx-background: -fx-app-datepicker-day-cell-background; /* Колір фону комірки дня */
+    -fx-text-fill: -fx-app-datepicker-day-cell-text-color; /* Колір тексту дня */
+    -fx-background-insets: 1, 2; /* Внутрішні відступи фону для ефекту рамки/виділення */
+    -fx-padding: 0.333333em; /* Внутрішні відступи */
+    -fx-font-size: 0.916667em; /* Розмір шрифту */
+    -fx-alignment: BASELINE_CENTER; /* Вирівнювання тексту по центру базової лінії */
+}
+
+/* Комірка дня при наведенні */
+.date-picker-popup .calendar-grid .day-cell:hover {
+    -fx-background-color: -fx-app-datepicker-day-cell-hover-background; /* Колір фону при наведенні */
+    -fx-text-fill: -fx-app-datepicker-day-cell-hover-text-color; /* Колір тексту при наведенні */
+}
+
+/* Вибрана комірка дня */
+.date-picker-popup .calendar-grid .day-cell.selected {
+    -fx-background-color: -fx-app-datepicker-day-cell-selected-background; /* Колір фону вибраного дня */
+    -fx-text-fill: -fx-app-datepicker-day-cell-selected-text-color; /* Колір тексту вибраного дня */
+}
+
+/* Комірка поточного дня ("сьогодні") */
+.date-picker-popup .calendar-grid .day-cell.today {
+    -fx-border-color: -fx-app-datepicker-day-cell-today-border-color; /* Колір рамки для поточного дня */
+}
+
+/* Комірка дня у фокусі (при навігації клавіатурою) */
+.date-picker-popup .calendar-grid .day-cell:focused {
+    -fx-background-insets: 1, 2; /* Збереження внутрішніх відступів фону */
+}
+
+/* Неактивна комірка дня (наприклад, дні іншого місяця) */
+.date-picker-popup .calendar-grid .day-cell:disabled {
+    -fx-opacity: -fx-app-datepicker-day-cell-disabled-opacity; /* Прозорість для неактивних днів */
+}
+
+/* Комірка з назвою дня тижня (Пн, Вт, ...) */
+.date-picker-popup .calendar-grid .day-name-cell {
+    -fx-font-weight: bold; /* Напівжирний шрифт */
+    -fx-text-fill: -fx-app-datepicker-day-cell-text-color; /* Колір тексту */
+    -fx-font-size: 0.833333em; /* Розмір шрифту (менший) */
+    -fx-padding: 0.583333em; /* Внутрішні відступи */
+}
+
+/* ==========================================================================
+   7. Стилі для ProgressBar (індикатор прогресу)
+   ========================================================================== */
+.progress-bar > .bar { /* Сама смуга прогресу (заповнена частина) */
+    -fx-background-color: -fx-app-accent-color-1; /* Колір смуги (акцентний) */
+    -fx-background-insets: 1; /* Внутрішній відступ фону */
+    -fx-padding: 0.25em; /* Висота прогрес-бару (контролюється відступом) */
+    -fx-background-radius: -fx-app-border-radius-small; /* Радіус заокруглення смуги */
+}
+.progress-bar > .track { /* Доріжка ProgressBar (фон) */
+    -fx-background-color: -fx-app-background-input; /* Фон доріжки, наприклад, світло-сірий або колір фону полів вводу */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+    -fx-background-radius: 3px; /* Радіус заокруглення доріжки */
+}
+
+/* ==========================================================================
+   8. Стилі для Spinner (лічильник)
+   (спадкують від TextField та Button)
+   ========================================================================== */
+.spinner {
+    -fx-background-color: -fx-app-spinner-background; /* Колір фону Spinner */
+    -fx-border-color: -fx-app-spinner-border-color; /* Колір рамки */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+}
+
+.spinner .text-field { /* Текстове поле всередині Spinner */
+    -fx-background-color: transparent; /* Прозорий фон текстового поля */
+    -fx-text-fill: -fx-app-spinner-text-color; /* Колір тексту */
+    -fx-border-width: 0; /* Нульова товщина рамки (контролюється батьківським Spinner) */
+    -fx-padding: 8px; /* Внутрішні відступи */
+}
+
+.spinner .increment-arrow-button, /* Кнопка збільшення значення */
+.spinner .decrement-arrow-button { /* Кнопка зменшення значення */
+    -fx-background-color: -fx-app-spinner-arrow-button-background; /* Колір фону кнопок зі стрілками */
+    -fx-padding: 0.25em; /* Внутрішні відступи кнопок */
+    -fx-background-radius: 0; /* Нульовий радіус заокруглення (щоб кнопки були прямокутні в межах Spinner) */
+}
+
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+    -fx-background-color: -fx-app-spinner-arrow-button-hover-background; /* Колір фону кнопок при наведенні */
+}
+
+.spinner .increment-arrow, /* Стрілка "вверх" */
+.spinner .decrement-arrow { /* Стрілка "вниз" */
+    -fx-background-color: -fx-app-spinner-arrow-color; /* Колір стрілок */
+    -fx-padding: 3; /* Внутрішні відступи, впливають на розмір стрілок */
+}
+
+/* ==========================================================================
+   9. Стилі для Tooltip (спливаюча підказка)
+   ========================================================================== */
+.tooltip {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 6px 8px;
+    -fx-background-radius: 4px;
+}

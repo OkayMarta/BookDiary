@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Картки цілей (елементи з класом .goal-card)
+   ========================================================================== */
+.goal-card {
+    -fx-background-color: -fx-app-stats-card-background; /* Фон картки (змінна) */
+    -fx-border-color: -fx-app-stats-card-border-color; /* Колір рамки картки (змінна) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 8px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 8px; /* Радіус заокруглення фону */
+    -fx-padding: 16px; /* Внутрішні відступи */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 2); /* Ефект тіні */
+}
+
+.goal-card:hover {
+    -fx-border-color: -fx-app-stats-card-border-hover; /* Колір рамки картки при наведенні (змінна) */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 6, 0, 0, 3); /* Посилений ефект тіні при наведенні */
+}
+
+/* ==========================================================================
+   Прогрес-бари (елементи ProgressBar)
+   Загальні стилі для ProgressBar вже є, тут можуть бути специфічні для сторінки статистики,
+   або використовуються змінні -fx-app-stats-*
+   ========================================================================== */
+.progress-bar { /* Застосовується до всіх ProgressBar, якщо не перевизначено більш специфічним селектором */
+    -fx-background-color: -fx-app-stats-progress-background; /* Фон доріжки прогрес-бару (змінна) */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону доріжки */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+    -fx-padding: 0; /* Нульові внутрішні відступи */
+}
+
+.progress-bar .bar { /* Заповнена частина прогрес-бару */
+    -fx-background-color: -fx-app-stats-progress-bar-color; /* Колір заповненої частини (змінна) */
+    -fx-background-radius: 4px; /* Радіус заокруглення заповненої частини */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+    -fx-padding: 0; /* Нульові внутрішні відступи */
+}
+
+.progress-bar .track { /* Доріжка прогрес-бару (фон) */
+    -fx-background-color: -fx-app-stats-progress-background; /* Фон доріжки (змінна, повторює .progress-bar) */
+    -fx-background-radius: 4px; /* Радіус заокруглення доріжки */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+}
+
+.progress-bar.completed .bar { /* Стиль для заповненої частини прогрес-бару, коли він "завершений" */
+    -fx-background-color: -fx-app-stats-progress-completed-color; /* Колір для завершеного прогресу (змінна) */
+}
+
+/* === СТИЛІ ДЛЯ СТОРІНКИ СТАТИСТИКИ === */
+
+.stats-root { /* Кореневий елемент сторінки статистики */
+    -fx-background-color: -fx-app-background-primary; /* Основний фон програми (змінна) */
+    -fx-padding: 40px 0 0 0; /* Відступ зверху */
+    -fx-alignment: TOP_CENTER; /* Вирівнювання вмісту по верхньому краю та по центру */
+}
+
+.stats-date-row { /* Рядок з вибором дати (містить ComboBox) */
+    -fx-spacing: 12px; /* Відстань між елементами в рядку */
+    -fx-alignment: CENTER; /* Вирівнювання по центру */
+    -fx-padding: 0 0 24px 0; /* Відступ знизу */
+}
+
+.stats-divider { /* Розділювач на сторінці статистики */
+    -fx-min-height: 1px; /* Мінімальна висота */
+    -fx-max-height: 1px; /* Максимальна висота */
+    -fx-pref-height: 1px; /* Бажана висота */
+    -fx-background-color: -fx-app-stats-divider-color; /* Колір розділювача (змінна) */
+    -fx-opacity: 0.15; /* Прозорість розділювача */
+    -fx-padding: 0 0 32px 0; /* Відступ знизу (для простору після розділювача) */
+}
+
+.stats-blocks { /* Контейнер для блоків статистики */
+    -fx-spacing: 36px; /* Відстань між блоками */
+    -fx-alignment: CENTER; /* Вирівнювання по центру */
+    -fx-padding: 0 0 0 0; /* Нульові відступи (або за потребою) */
+}
+
+.stats-block { /* Окремий блок статистики (наприклад, "Прочитано книг") */
+    -fx-spacing: 16px; /* Відстань між міткою та значенням всередині блоку */
+    -fx-alignment: CENTER; /* Вирівнювання по центру */
+}
+
+.stats-block-label { /* Мітка блоку статистики (наприклад, "Книг за рік") */
+    -fx-font-size: 22px; /* Розмір шрифту */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-text-fill: -fx-app-stats-block-label-color; /* Колір тексту мітки (змінна) */
+    -fx-padding: 0 0 8px 0; /* Відступ знизу */
+}
+
+.stats-block-value { /* Значення в блоці статистики (число) */
+    -fx-font-size: 38px; /* Розмір шрифту */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: -fx-app-stats-block-value-color; /* Колір тексту значення (змінна) */
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-border-color: -fx-app-stats-block-border-color; /* Колір рамки (змінна) */
+    -fx-border-width: 2px; /* Товщина рамки */
+    -fx-border-radius: 50px; /* Радіус заокруглення рамки (для створення кола) */
+    -fx-background-radius: 50px; /* Радіус заокруглення фону (для створення кола) */
+    -fx-min-width: 90px; /* Мінімальна ширина (для створення кола фіксованого розміру) */
+    -fx-min-height: 90px; /* Мінімальна висота */
+    -fx-max-width: 90px; /* Максимальна ширина */
+    -fx-max-height: 90px; /* Максимальна висота */
+    -fx-alignment: center; /* Вирівнювання тексту по центру всередині кола */
+    -fx-padding: 0; /* Нульові внутрішні відступи */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 2, 0, 0, 1); /* Легка тінь */
+}
+
+/* --- Стилі для кастомних ComboBox (використовуються на сторінці статистики) --- */
+/* Примітка: ComboBox використовує фіксований колір #AA8F76 для узгодженості з іншими елементами дизайну,
+   або відповідні змінні -fx-app-custom-combo-* */
+.custom-combo-box {
+    -fx-background-color: -fx-app-custom-combo-background; /* Фон ComboBox (змінна) */
+    -fx-text-fill: -fx-app-custom-combo-text; /* Колір тексту (змінна) */
+    -fx-border-color: transparent; /* Прозора рамка (або задати колір, якщо потрібно) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 6px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 6px; /* Радіус заокруглення фону */
+    -fx-padding: 5px 10px 5px 10px; /* Внутрішні відступи */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-pref-width: 150px; /* Бажана ширина */
+}
+
+.custom-combo-box:hover {
+    -fx-border-color: transparent; /* Колір рамки при наведенні (залишається прозорою) */
+}
+
+.custom-combo-box .combo-box-popup .list-view { /* Випадаючий список */
+    -fx-background-color: -fx-app-custom-combo-background; /* Фон випадаючого списку (змінна) */
+    -fx-border-color: transparent; /* Прозора рамка */
+    -fx-border-width: 0px; /* Нульова товщина рамки */
+    -fx-background-radius: 6px; /* Радіус заокруглення фону */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0, 0, 2); /* Ефект тіні */
+}
+
+.custom-combo-box .list-cell { /* Комірка у відображуваній частині ComboBox */
+    -fx-background-color: -fx-app-custom-combo-background; /* Фон комірки (змінна) */
+    -fx-text-fill: -fx-app-custom-combo-text; /* Колір тексту (змінна) */
+    -fx-padding: 5px 0px 5px 5px; /* Внутрішні відступи */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+    -fx-background-radius: 0; /* Нульовий радіус заокруглення фону (щоб не конфліктувати з батьківським) */
+    -fx-border-width: 0; /* Без рамки */
+}
+
+.custom-combo-box .combo-box-popup .list-view .list-cell { /* Комірка у випадаючому списку */
+    -fx-padding: 8px 12px; /* Внутрішні відступи */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону (для окремих комірок) */
+}
+
+.custom-combo-box .list-cell:filled:hover { /* Комірка при наведенні (якщо заповнена) */
+    -fx-background-color: -fx-app-custom-combo-hover; /* Фон при наведенні (змінна) */
+    -fx-text-fill: -fx-app-custom-combo-text; /* Колір тексту (змінна, може бути той самий) */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+}
+
+.custom-combo-box .list-cell:filled:selected { /* Вибрана комірка (якщо заповнена) */
+    -fx-background-color: -fx-app-custom-combo-selected; /* Фон вибраної комірки (змінна) */
+    -fx-text-fill: -fx-app-custom-combo-text; /* Колір тексту (змінна, може бути той самий) */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+}
+
+.custom-combo-box .arrow-button { /* Кнопка зі стрілкою */
+    -fx-background-color: -fx-app-custom-combo-background; /* Фон кнопки (змінна) */
+    -fx-padding: 0; /* Нульові відступи */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+    -fx-background-radius: 0; /* Нульовий радіус заокруглення */
+}
+
+.custom-combo-box .arrow { /* Сама стрілка */
+    -fx-background-color: -fx-app-custom-combo-text; /* Колір стрілки (змінна) */
+    -fx-shape: "M0 0 H4 L2 2 Z"; /* Форма стрілки (трикутник вниз) */
+    -fx-padding: 4px; /* Внутрішні відступи для стрілки */
+}
+
+.custom-combo-box:editable .text-field { /* Текстове поле в редагованому ComboBox */
+    -fx-background-color: -fx-app-custom-combo-background; /* Фон текстового поля (змінна) */
+    -fx-text-fill: -fx-app-custom-combo-text; /* Колір тексту (змінна) */
+    -fx-border-width: 0; /* Без рамки */
+    -fx-padding: 5px 8px 5px 12px; /* Внутрішні відступи */
+}
+
+.custom-combo-box:disabled { /* Неактивний ComboBox */
+    -fx-opacity: 0.7; /* Прозорість */
+    -fx-background-color: -fx-app-custom-combo-disabled; /* Фон неактивного ComboBox (змінна) */
+}
+
+/* --- Адаптація під різні розміри екрану (медіа-запити) --- */
+@media screen and (max-width: 900px) { /* Якщо максимальна ширина екрану 900px або менше */
+    .stats-blocks { /* Контейнер блоків статистики */
+        -fx-spacing: 18px; /* Зменшена відстань між блоками */
+    }
+    .stats-block-label { /* Мітка блоку статистики */
+        -fx-font-size: 18px; /* Зменшений розмір шрифту */
+    }
+    .stats-block-value { /* Значення в блоці статистики */
+        -fx-font-size: 28px; /* Зменшений розмір шрифту */
+        -fx-min-width: 60px; /* Зменшена мінімальна ширина кола */
+        -fx-min-height: 60px; /* Зменшена мінімальна висота кола */
+        -fx-max-width: 60px; /* Зменшена максимальна ширина кола */
+        -fx-max-height: 60px; /* Зменшена максимальна висота кола */
+    }
+}

@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Загальний контейнер для екрану Імпорту/Експорту
+   ========================================================================== */
+.import-export-view-container {
+    -fx-padding: 24px; /* Внутрішні відступи */
+    -fx-spacing: 20px; /* Відстань між дочірніми елементами */
+    -fx-background-color: -fx-app-background-primary; /* Фон, що використовує змінну теми */
+    -fx-alignment: TOP_CENTER; /* Вирівнювання вмісту по верхньому краю та по центру */
+}
+
+/* ==========================================================================
+   Заголовок екрану "Імпорт та Експорт Даних"
+   ========================================================================== */
+.import-export-view-title {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 24px; /* Розмір шрифту */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір тексту (має адаптуватися з темою через змінну) */
+    -fx-padding-bottom: 10px; /* Відступ знизу */
+}
+
+/* ==========================================================================
+   Секції Імпорту та Експорту (наприклад, VBox або інший контейнер)
+   ========================================================================== */
+.import-export-section {
+    -fx-background-color: -fx-app-background-primary; /* Фон секції, такий самий як фон сторінки */
+    -fx-padding: 15px; /* Внутрішні відступи */
+    -fx-spacing: 10px; /* Відстань між елементами всередині секції */
+    -fx-background-radius: 6px; /* Радіус заокруглення фону */
+    -fx-border-radius: 6px; /* Радіус заокруглення рамки */
+    -fx-border-color: -fx-app-border-color-standard; /* Колір рамки для візуального розділення (змінна) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-effect: -fx-app-shadow-small; /* Легка тінь (змінна) */
+    -fx-alignment: CENTER_LEFT; /* Вирівнювання вмісту по центру зліва */
+}
+
+/* Заголовок секції (наприклад, "Експорт даних у файл") */
+.import-export-section-title {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 18px; /* Розмір шрифту */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір тексту (змінна) */
+    -fx-padding-bottom: 5px; /* Відступ знизу */
+}
+
+/* Описовий текст у секції експорту (звичайний Label) */
+.import-export-description {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-text-fill: -fx-app-text-color-secondary; /* Вторинний колір тексту (змінна) */
+    -fx-wrap-text: true; /* Увімкнути перенос тексту */
+}
+
+/* Стилі для TextFlow та Text у секції імпорту */
+.import-export-text-flow {
+    /* Можна додати відступи або інші стилі для TextFlow, якщо потрібно */
+}
+
+.import-export-text-flow .import-intro-text { /* Загальний текст в TextFlow */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-fill: -fx-app-text-color-primary; /* Колір тексту (змінна для Text елементів) */
+}
+
+/* Для тексту "УВАГА:" всередині TextFlow */
+.import-export-text-flow .warning-text-emphasis {
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-fill: -fx-app-text-color-error !important; /* Колір тексту для попередження (змінна). !important для перекриття стилів, якщо потрібно. */
+}
+
+/* Для жирного тексту "Поточні дані..." всередині TextFlow */
+.import-export-text-flow .bold-import-text {
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-fill: -fx-app-text-color-primary; /* Колір тексту (переконуємось, що він правильний, змінна) */
+}
+
+
+/* ==========================================================================
+   Кнопки "Експортувати дані" та "Імпортувати дані"
+   ========================================================================== */
+.export-data-button,
+.import-data-button {
+    -fx-background-color: #AA8F76; /* Фіксований колір фону */
+    -fx-text-fill: #FFFFFF; /* Білий колір тексту на коричневому фоні */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-pref-height: 40px; /* Бажана висота кнопки */
+    -fx-padding: 8px 16px; /* Внутрішні відступи */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-border-color: transparent; /* Зазвичай рамка не потрібна, якщо є суцільний фон */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+}
+.export-data-button:hover,
+.import-data-button:hover {
+    -fx-background-color: derive(#AA8F76, -15%); /* Колір фону при наведенні (трохи темніший) */
+}
+
+/* ==========================================================================
+   Мітка статусу (для відображення результатів операцій імпорту/експорту)
+   ========================================================================== */
+.status-section-container { /* Контейнер для міток статусу */
+    -fx-padding: 10px 0 0 0; /* Відступ зверху */
+    -fx-alignment: CENTER_LEFT; /* Вирівнювання по центру зліва */
+}
+.status-label-title { /* Заголовок мітки статусу (наприклад, "Статус:") */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-style: italic; /* Курсивний стиль */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-text-fill: -fx-app-text-color-muted; /* Приглушений колір тексту (змінна) */
+}
+.status-label-value { /* Значення мітки статусу (саме повідомлення) */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-text-fill: -fx-app-text-color-muted; /* Приглушений колір тексту (змінна) */
+    -fx-wrap-text: true; /* Увімкнути перенос тексту */
+}
+.status-label-value.success { /* Стиль для успішного статусу */
+    -fx-text-fill: -fx-app-text-color-success; /* Зелений колір тексту (змінна) */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+}
+.status-label-value.error { /* Стиль для статусу помилки */
+    -fx-text-fill: -fx-app-text-color-error; /* Червоний колір тексту (змінна) */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+}

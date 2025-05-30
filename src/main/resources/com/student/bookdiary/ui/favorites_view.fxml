@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Головний контейнер для відображення улюблених книг -->
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="root-pane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.student.bookdiary.ui.FavoritesController">
+    <children>
+        <!-- Контейнер для елементів фільтрації та пошуку -->
+        <VBox spacing="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+            <children>
+                <!-- Панель з елементами пошуку та фільтрації -->
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <!-- Поле для пошуку книг -->
+                        <TextField fx:id="searchField" promptText="Пошук за назвою або автором..." styleClass="filter-search-field" HBox.hgrow="ALWAYS" />
+                        <!-- Випадаючий список для фільтрації за жанром -->
+                        <ComboBox fx:id="genreFilterComboBox" promptText="Фільтр за жанром" styleClass="filter-combo-box" />
+                        <!-- Випадаючий список для вибору сортування -->
+                        <ComboBox fx:id="sortComboBox" promptText="Сортування" styleClass="filter-combo-box" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" />
+            </padding>
+        </VBox>
+
+        <!-- Прокручуваний контейнер для списку книг -->
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutY="60.0" prefHeight="525.0" prefWidth="770.0" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
+            <content>
+                <!-- Контейнер для відображення карток книг -->
+                <FlowPane fx:id="bookFlowPane" hgap="15.0" prefWrapLength="750.0" styleClass="book-list-flow-pane" vgap="15.0">
+                    <padding>
+                        <Insets bottom="15.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </FlowPane>
+            </content>
+        </ScrollPane>
+
+    </children>
+</AnchorPane>

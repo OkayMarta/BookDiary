@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Головний контейнер для відображення цілей читання -->
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.student.bookdiary.ui.GoalsController"
+      stylesheets="@css/components/goals-view.css" styleClass="goals-view-container">
+    
+    <children>
+        <!-- Заголовок розділу -->
+        <Label text="Мої цілі" styleClass="goals-view-title"/>
+        
+        <!-- Панель керування цілями -->
+        <HBox styleClass="goals-controls-container">
+            <children>
+                <!-- Кнопка для додавання нової цілі -->
+                <Button fx:id="addGoalButton" text="Додати ціль" styleClass="add-goal-button" onAction="#handleAddGoalButton"/>
+                <!-- Випадаючий список для фільтрації цілей -->
+                <ComboBox fx:id="filterComboBox" styleClass="goals-filter-combobox" promptText="Всі цілі"/>
+            </children>
+        </HBox>
+        
+        <!-- Контейнер для відображення карток цілей -->
+        <FlowPane fx:id="goalsFlowPane" styleClass="goals-flow-pane" hgap="24" vgap="24">
+            <padding>
+                <Insets bottom="24" left="24" right="24" top="24"/>
+            </padding>
+        </FlowPane>
+    </children>
+</VBox>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+
+<!-- Головний контейнер для вікна імпорту/експорту даних -->
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="import-export-view-container" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.student.bookdiary.ui.ImportExportController">
+    <children>
+        <!-- Основний вертикальний контейнер -->
+        <VBox alignment="TOP_CENTER" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <!-- Заголовок вікна -->
+                <Label text="Резервне копіювання та відновлення даних" styleClass="import-export-view-title">
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </Label>
+
+                <!-- Секція експорту даних -->
+                <VBox alignment="CENTER_LEFT" spacing="10.0" styleClass="import-export-section">
+                    <children>
+                        <Label text="Експорт даних" styleClass="import-export-section-title">
+                            <VBox.margin>
+                                <Insets bottom="5.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label text="Створіть повну резервну копію всіх ваших даних (включаючи базу даних та обкладинки книг) в один ZIP-архів." styleClass="import-export-description" wrapText="true" />
+                        <Button fx:id="exportDataButton" styleClass="export-data-button" mnemonicParsing="false" text="Експортувати дані...">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </VBox>
+
+                <!-- Розділювач між секціями -->
+                <Separator prefWidth="200.0" />
+
+                <!-- Секція імпорту даних -->
+                <VBox alignment="CENTER_LEFT" spacing="10.0" styleClass="import-export-section">
+                    <children>
+                        <Label text="Імпорт даних" styleClass="import-export-section-title">
+                            <VBox.margin>
+                                <Insets bottom="5.0" />
+                            </VBox.margin>
+                        </Label>
+                        <!-- Блок з попередженням про імпорт -->
+                        <TextFlow styleClass="import-export-text-flow">
+                            <Text text="Відновіть дані з попередньо створеної резервної копії (ZIP-архіву). " styleClass="import-intro-text" />
+                            <Text text="УВАГА: " styleClass="warning-text-emphasis" />
+                            <Text text="Поточні дані (база даних та обкладинки) будуть повністю замінені даними з обраної резервної копії! Цю дію неможливо буде скасувати." styleClass="bold-import-text" />
+                        </TextFlow>
+                        <Button fx:id="importDataButton" styleClass="import-data-button" mnemonicParsing="false" text="Імпортувати дані...">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+
+                <!-- Розділювач перед секцією статусу -->
+                <Separator prefWidth="200.0">
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </Separator>
+
+                <!-- Секція відображення статусу операції -->
+                <VBox alignment="CENTER_LEFT" spacing="5.0" styleClass="status-section-container">
+                    <children>
+                        <HBox spacing="5.0" alignment="CENTER_LEFT">
+                            <Label text="Статус останньої операції:" styleClass="status-label-title"/>
+                            <Label fx:id="statusLabel" text="-" styleClass="status-label-value" wrapText="true"/>
+                        </HBox>
+                    </children>
+                </VBox>
+
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

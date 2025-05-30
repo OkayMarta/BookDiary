@@ -1,0 +1,320 @@
+/* ==========================================================================
+   Стандартні діалоги JavaFX (Alert)
+   ========================================================================== */
+.dialog-pane { /* Головна панель діалогового вікна */
+    -fx-background-color: -fx-app-background-dialog; /* Фон діалогового вікна (змінна) */
+    -fx-padding: 24px; /* Внутрішні відступи */
+    -fx-border-color: -fx-app-border-color-standard; /* Колір рамки (змінна) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-effect: -fx-app-shadow-medium; /* Ефект тіні (змінна) */
+}
+
+.dialog-pane > .content.label { /* Мітка з основним текстом повідомлення в діалозі */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-text-fill: -fx-app-text-color-primary; /* Основний колір тексту (змінна) */
+    -fx-padding: 16px 0; /* Вертикальні відступи */
+}
+
+.dialog-pane > .header-panel { /* Панель заголовка діалогу */
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-padding: 0; /* Нульові відступи */
+}
+
+.dialog-pane > .header-panel > .label { /* Мітка заголовка діалогу */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 20px; /* Розмір шрифту */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: -fx-app-text-color-primary; /* Основний колір тексту (змінна) */
+}
+
+.dialog-pane .button-bar { /* Панель з кнопками (ОК, Скасувати тощо) */
+    -fx-padding: 16px 0 0 0; /* Відступ зверху */
+}
+
+.dialog-pane .button-bar .container { /* Контейнер кнопок всередині button-bar */
+    -fx-spacing: 12px; /* Відстань між кнопками */
+}
+
+/* Кнопки в стандартних діалогах */
+.dialog-pane .button-bar .container .button {
+    -fx-background-color: -fx-app-button-accent-background; /* Фон акцентної кнопки (змінна) */
+    -fx-text-fill: -fx-app-button-accent-text; /* Колір тексту на акцентній кнопці (змінна) */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-padding: 8px 24px; /* Внутрішні відступи */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+}
+
+.dialog-pane .button-bar .container .button:hover {
+    -fx-background-color: -fx-app-button-accent-background-hover; /* Фон акцентної кнопки при наведенні (змінна) */
+}
+
+/* Специфічні стилі для різних типів Alert (іконки) */
+.alert.confirmation .dialog-pane { /* Діалог підтвердження */
+    -fx-graphic: url("../../images/icons/confirmation-icon.svg"); /* Іконка для діалогу підтвердження */
+}
+
+.alert.confirmation .dialog-pane > .header-panel > .label {
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір заголовка для діалогу підтвердження */
+}
+
+.alert.error .dialog-pane { /* Діалог помилки */
+    -fx-graphic: url("../../images/icons/error-icon.svg"); /* Іконка для діалогу помилки */
+}
+
+.alert.error .dialog-pane > .header-panel > .label {
+    -fx-text-fill: -fx-app-text-color-error; /* Колір заголовка для діалогу помилки (змінна) */
+}
+
+/* ==========================================================================
+   Кастомні діалоги (створені не через стандартний Alert)
+   ========================================================================== */
+.dialog-title { /* Заголовок кастомного діалогу */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 20px; /* Розмір шрифту */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: -fx-app-text-color-primary; /* Основний колір тексту (змінна) */
+    -fx-padding: 0 0 16px 0; /* Відступ знизу */
+}
+
+/* Панель з кнопками дій у кастомному діалозі */
+.dialog-button-pane {
+    -fx-padding: 16px 0 0 0; /* Відступ зверху */
+    -fx-spacing: 12px; /* Відстань між кнопками */
+    -fx-alignment: CENTER_RIGHT; /* Вирівнювання кнопок по центру справа */
+}
+
+/* ==========================================================================
+   Елементи форм в діалогах
+   ========================================================================== */
+/* Загальні розміри для всіх елементів форм */
+.dialog-pane .text-field,
+.dialog-pane .text-area,
+.dialog-pane .combo-box,
+.dialog-pane .date-picker,
+.dialog-pane .spinner {
+    -fx-pref-width: 300px;  /* Бажана ширина */
+    -fx-min-width: 200px;   /* Мінімальна ширина */
+    -fx-pref-height: 38px;  /* Бажана висота (для однорядкових полів) */
+}
+
+.dialog-pane .text-area { /* TextArea може мати іншу висоту */
+    -fx-pref-height: 100px; /* Бажана висота для TextArea */
+}
+
+/* Мітки полів форми */
+.dialog-form-label {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 15px; /* Розмір шрифту */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-text-fill: -fx-app-text-color-secondary; /* Вторинний колір тексту (змінна) */
+    -fx-padding: 8px 0 4px 0; /* Відступи (зверху і знизу) */
+}
+
+/* Загальні стилі для полів вводу (TextField, TextArea) */
+.dialog-form-input,
+.dialog-form-textarea {
+    -fx-background-color: -fx-app-background-input; /* Фон поля вводу (змінна) */
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір введеного тексту (змінна) */
+    -fx-prompt-text-fill: -fx-app-text-color-placeholder; /* Колір тексту-підказки (змінна) */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-border-color: -fx-app-border-color-input; /* Колір рамки (змінна) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-padding: 8px; /* Внутрішні відступи */
+}
+
+/* ComboBox (випадаючий список) у формі діалогу */
+.dialog-form-combo-box {
+    -fx-background-color: -fx-app-background-input; /* Фон ComboBox (змінна) */
+    -fx-border-color: -fx-app-border-color-input; /* Колір рамки (змінна) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-padding: 0; /* Нульові відступи (контролюються внутрішніми елементами) */
+}
+
+.dialog-form-combo-box .list-cell { /* Елемент списку (відображуваний і у випадаючому списку) */
+    -fx-background-color: transparent; /* Прозорий фон (колір від батьківського ComboBox) */
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір тексту (змінна) */
+    -fx-padding: 7px 8px; /* Внутрішні відступи (трохи менші по висоті, щоб вміститись у 38px) */
+    -fx-font-size: 14px; /* Розмір шрифту */
+}
+
+.dialog-form-combo-box .arrow-button { /* Кнопка зі стрілкою */
+    -fx-background-color: transparent; /* Прозорий фон */
+}
+
+.dialog-form-combo-box .arrow { /* Сама стрілка */
+    -fx-background-color: -fx-app-accent-color-1; /* Колір стрілки (акцентний, змінна) */
+}
+
+/* DatePicker (вибір дати) у формі діалогу */
+.dialog-form-date-picker {
+    -fx-background-color: -fx-app-background-input; /* Фон DatePicker (змінна) */
+    -fx-border-color: -fx-app-border-color-input; /* Колір рамки (змінна) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+}
+
+.dialog-form-date-picker .text-field { /* Текстове поле всередині DatePicker */
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір тексту (змінна) */
+    -fx-border-width: 0; /* Без рамки (контролюється батьківським DatePicker) */
+    -fx-padding: 8px; /* Внутрішні відступи */
+}
+
+.dialog-form-date-picker .arrow-button { /* Кнопка зі стрілкою/іконкою календаря */
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-padding: 0 8px; /* Горизонтальні відступи */
+}
+
+.dialog-form-date-picker .arrow { /* Сама стрілка/іконка */
+    -fx-background-color: -fx-app-accent-color-1; /* Колір стрілки (акцентний, змінна) */
+}
+
+/* Spinner (лічильник) у діалозі */
+.dialog-spinner {
+    -fx-background-color: -fx-app-background-input; /* Фон Spinner (змінна) */
+    -fx-border-color: -fx-app-border-color-input; /* Колір рамки (змінна) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+}
+
+.dialog-spinner .text-field { /* Текстове поле всередині Spinner */
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір тексту (змінна) */
+    -fx-border-width: 0; /* Без рамки */
+    -fx-padding: 8px; /* Внутрішні відступи */
+}
+
+.dialog-spinner .increment-arrow-button, /* Кнопка збільшення */
+.dialog-spinner .decrement-arrow-button { /* Кнопка зменшення */
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-padding: 4px; /* Внутрішні відступи */
+}
+
+.dialog-spinner .increment-arrow-button:hover,
+.dialog-spinner .decrement-arrow-button:hover {
+    -fx-background-color: derive(-fx-app-background-input, -5%); /* Фон при наведенні (трохи темніший, змінна) */
+}
+
+.dialog-spinner .increment-arrow, /* Стрілка "вверх" */
+.dialog-spinner .decrement-arrow { /* Стрілка "вниз" */
+    -fx-background-color: -fx-app-accent-color-1; /* Колір стрілок (акцентний, змінна) */
+}
+
+/* Валідація полів (стиль для помилки) */
+.dialog-form-input:error,
+.dialog-form-combo-box:error,
+.dialog-form-textarea:error {
+    -fx-border-color: -fx-app-text-color-error; /* Колір рамки при помилці валідації (змінна) */
+}
+
+/* ==========================================================================
+   Кнопки в діалогах
+   ========================================================================== */
+/* Основна кнопка дії (Зберегти/ОК) */
+.save-button {
+    -fx-background-color: -fx-app-button-cta-background; /* Фон CTA кнопки (змінна) */
+    -fx-text-fill: -fx-app-button-cta-text; /* Колір тексту на CTA кнопці (змінна) */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-padding: 8px 24px; /* Внутрішні відступи */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+}
+
+.save-button:hover {
+    -fx-background-color: -fx-app-button-cta-background-hover; /* Фон CTA кнопки при наведенні (змінна) */
+}
+
+/* Кнопка скасування */
+.cancel-button {
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-text-fill: -fx-app-text-color-secondary; /* Вторинний колір тексту (змінна) */
+    -fx-border-color: -fx-app-accent-color-1; /* Колір рамки (акцентний, змінна) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-padding: 8px 24px; /* Внутрішні відступи */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+}
+
+.cancel-button:hover {
+    -fx-background-color: derive(-fx-app-background-primary, -5%); /* Фон при наведенні (трохи темніший від основного, змінна) */
+}
+
+/* Кнопка вибору файлу */
+.dialog-select-file-button {
+    -fx-background-color: #AA8F76; /* Жорсткий колір фону (не змінна) */
+    -fx-text-fill: #FFFFFF; /* Жорсткий колір тексту (не змінна) */
+    -fx-border-width: 0; /* Без рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-padding: 8px 16px; /* Внутрішні відступи */
+    -fx-font-size: 13px; /* Розмір шрифту */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 1); /* Легка тінь */
+}
+
+.dialog-select-file-button:hover {
+    -fx-background-color: derive(#AA8F76, -10%); /* Фон при наведенні (трохи темніший) */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 6, 0, 0, 2); /* Посилена тінь */
+}
+
+.dialog-select-file-button:pressed {
+    -fx-background-color: derive(#AA8F76, -20%); /* Фон при натисканні (ще темніший) */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1); /* Інша тінь */
+}
+
+/* Кнопка видалення (маленька, червона) */
+.dialog-danger-button-small {
+    -fx-background-color: -fx-app-button-danger-background; /* Фон кнопки небезпеки (змінна) */
+    -fx-text-fill: -fx-app-button-danger-text; /* Колір тексту на кнопці небезпеки (змінна) */
+    -fx-padding: 8px 16px; /* Внутрішні відступи */
+    -fx-font-size: 13px; /* Розмір шрифту */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+    -fx-border-width: 0; /* Без рамки */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 1); /* Легка тінь */
+}
+
+.dialog-danger-button-small:hover {
+    -fx-background-color: -fx-app-button-danger-background-hover; /* Фон при наведенні (змінна) */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 6, 0, 0, 2); /* Посилена тінь */
+}
+
+.dialog-danger-button-small:pressed {
+    -fx-background-color: derive(-fx-app-button-danger-background-hover, -10%); /* Фон при натисканні (темніший, змінна) */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1); /* Інша тінь */
+}
+
+/* ==========================================================================
+   Додаткові елементи в діалогах
+   ========================================================================== */
+/* Мітка для шляху до файлу обкладинки */
+.dialog-cover-path-label {
+    -fx-font-size: 11px; /* Маленький розмір шрифту */
+    -fx-text-fill: -fx-app-text-color-muted; /* Приглушений колір тексту (змінна) */
+    -fx-font-style: italic; /* Курсивний стиль */
+}
+
+/* ImageView для попереднього перегляду обкладинки */
+.dialog-cover-imageview {
+    -fx-border-color: -fx-app-border-color-input; /* Колір рамки (як у полів вводу, змінна) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-color: -fx-app-background-secondary; /* Вторинний фон (якщо зображення немає або воно прозоре, змінна) */
+}
+
+/* Розділювачі (Separator) в діалозі */
+.dialog-pane .separator .line {
+    -fx-border-color: -fx-app-border-color-standard; /* Колір лінії розділювача (стандартний колір рамки, змінна) */
+    -fx-border-width: 1px 0 0 0; /* Товщина лінії (тільки верхня межа) */
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- Головний контейнер для вікна "Про програму" -->
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="450.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.student.bookdiary.ui.AboutController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <!-- Заголовок програми -->
+        <Label text="Book Diary">
+            <font>
+                <Font name="Book Antiqua Bold" size="30.0" />
+            </font>
+            <VBox.margin> <!-- ПРАВИЛЬНИЙ СИНТАКСИС -->
+                <Insets bottom="5.0" />
+            </VBox.margin>
+        </Label>
+        <!-- Інформація про версію програми -->
+        <Label fx:id="versionLabel" text="Версія: 1.0-SNAPSHOT">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <!-- Інформація про автора -->
+        <Label fx:id="authorLabel" text="Окілка Марта Юріївна">
+            <font>
+                <Font size="16.0" />
+            </font>
+            <VBox.margin> <!-- ПРАВИЛЬНИЙ СИНТАКСИС -->
+                <Insets bottom="15.0" />
+            </VBox.margin>
+        </Label>
+        <!-- Розділювач -->
+        <Separator prefWidth="200.0" />
+        <!-- Опис програми -->
+        <Label prefWidth="409.0" text="Book Diary - це ваш персональний помічник для ведення читацького щоденника. Додавайте книги, відстежуйте прогрес, діліться враженнями та знаходьте нові твори для читання!" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <VBox.margin> <!-- ПРАВИЛЬНИЙ СИНТАКСИС -->
+                <Insets top="15.0" />
+            </VBox.margin>
+        </Label>
+        <!-- Розділювач -->
+        <Separator prefWidth="200.0">
+            <VBox.margin> <!-- ПРАВИЛЬНИЙ СИНТАКСИС -->
+                <Insets bottom="10.0" top="15.0" />
+            </VBox.margin>
+        </Separator>
+        <!-- Секція з технічною інформацією -->
+        <Label text="Технології:">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+        <!-- Список використаних технологій -->
+        <Label text="Java, JavaFX, SQLite, Maven, SLF4J &amp; Logback" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <!-- Посилання на GitHub репозиторій -->
+        <Hyperlink fx:id="githubLink" onAction="#handleGitHubLinkClick" text="Проект на GitHub">
+            <font>
+                <Font size="16.0" />
+            </font>
+            <VBox.margin> <!-- ПРАВИЛЬНИЙ СИНТАКСИС -->
+                <Insets top="10.0" />
+            </VBox.margin>
+        </Hyperlink>
+        <!-- Інформація про авторські права -->
+        <Label fx:id="copyrightLabel" text="© 2024 [Марта Окілка]. Всі права захищено." textAlignment="CENTER">
+            <VBox.margin> <!-- ПРАВИЛЬНИЙ СИНТАКСИС -->
+                <Insets top="20.0" />
+            </VBox.margin>
+        </Label>
+    </children>
+</VBox>

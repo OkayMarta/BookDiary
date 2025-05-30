@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Загальний контейнер для екрану Цілей (наприклад, VBox)
+   ========================================================================== */
+.goals-view-container { /* Застосуй цей клас до кореневого елемента goals_view.fxml */
+    -fx-padding: 16px; /* Внутрішні відступи */
+    -fx-spacing: 16px; /* Відстань між дочірніми елементами */
+    -fx-background-color: -fx-app-background-primary; /* Фон, що використовує змінну теми */
+    -fx-alignment: TOP_CENTER; /* Вирівнювання вмісту по верхньому краю та по центру */
+}
+
+/* ==========================================================================
+   Заголовок екрану "Мої Цілі" (якщо використовується)
+   ========================================================================== */
+.goals-view-title {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 2.2em;  /* Розмір шрифту (збільшено для відповідності заголовкам інших сторінок) */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір тексту (має адаптуватися з темою через змінну) */
+    -fx-padding: 0 0 16px 0; /* Відступ знизу */
+}
+
+/* ==========================================================================
+   Контейнер для фільтрів та кнопки "Додати ціль" (наприклад, HBox)
+   ========================================================================== */
+.goals-controls-container {
+    -fx-padding: 12px 0; /* Вертикальні відступи */
+    -fx-spacing: 16px; /* Відстань між елементами */
+    -fx-alignment: CENTER_LEFT; /* Вирівнювання по центру зліва */
+}
+
+/* Кнопка "Додати нову ціль" */
+.add-goal-button { /* Застосуй цей клас до кнопки "Додати нову ціль" в FXML */
+    -fx-background-color: -fx-app-button-cta-background; /* Фон CTA кнопки (змінна) */
+    -fx-text-fill: -fx-app-button-cta-text; /* Колір тексту CTA кнопки (змінна) */
+    -fx-font-weight: 500;  /* Напівжирний шрифт (medium) */
+    -fx-border-color: transparent; /* Прибираємо рамку, якщо вона є за замовчуванням */
+    -fx-border-radius: 4px; /* Стандартний радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Стандартний радіус заокруглення фону */
+    -fx-padding: 8px 16px; /* Стандартні внутрішні відступи для кнопки */
+    /* Інші стилі можуть успадковуватися від загального класу .button або можна їх тут перевизначити */
+}
+.add-goal-button:hover {
+    -fx-background-color: -fx-app-button-cta-background-hover; /* Фон CTA кнопки при наведенні (змінна) */
+}
+
+/* ComboBox для фільтрації цілей */
+.goals-filter-combobox { /* Застосуй цей клас до ComboBox для фільтрації в FXML */
+    -fx-pref-width: 200px; /* Бажана ширина ComboBox */
+    /* Текст для вибраного елемента в згорнутому стані вже має бути білим через глобальні стилі .combo-box-base,
+       якщо вони налаштовані на -fx-app-accent-color-1 та -fx-app-text-on-accent-1 */
+}
+
+/* Базовий стиль для ВСІХ комірок списку, пов'язаних з цим ComboBox
+   (включаючи комірку, що відображає вибране значення в згорнутому вигляді) */
+.goals-filter-combobox .list-cell {
+    -fx-background-color: -fx-app-accent-color-1; /* Фон комірки (акцентний колір, змінна) */
+    -fx-text-fill: -fx-app-text-on-accent-1; /* Колір тексту на акцентному фоні (змінна) */
+    -fx-padding: 8px; /* Внутрішні відступи */
+    -fx-font-size: 14px; /* Розмір шрифту */
+}
+
+/* Стилізація самого випадаючого списку (list-view всередині popup) для заокруглених кутів */
+.goals-filter-combobox .combo-box-popup .list-view {
+    -fx-background-color: -fx-app-accent-color-1; /* Фон самого випадаючого списку (акцентний колір, змінна) */
+    -fx-background-radius: 4px;   /* Заокруглені кути для випадаючого списку */
+    -fx-border-color: transparent; /* Прибираємо можливу стандартну рамку list-view */
+    -fx-border-width: 0px; /* Нульова товщина рамки */
+}
+
+/* Стилі для стану наведення/вибору ТІЛЬКИ для комірок всередині випадаючого списку (popup) */
+.goals-filter-combobox .combo-box-popup .list-view .list-cell:filled:hover,
+.goals-filter-combobox .combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: derive(-fx-app-accent-color-1, -10%); /* Затемнений фон для виділення (на 10% темніший від акцентного) */
+}
+
+
+/* ==========================================================================
+   FlowPane для відображення карток цілей
+   ========================================================================== */
+.goals-flow-pane { /* Застосуй цей клас до FlowPane в FXML */
+    -fx-hgap: 16px; /* Горизонтальний відступ між картками */
+    -fx-vgap: 16px; /* Вертикальний відступ між картками */
+    -fx-padding: 12px 0 0 0; /* Відступ зверху */
+    /* -fx-alignment: TOP_LEFT; - це стандартне вирівнювання для FlowPane, можна не вказувати */
+}
+
+
+/* ==========================================================================
+   Картка цілі (елемент VBox з класом .goal-card)
+   ========================================================================== */
+.goal-card {
+    -fx-background-color: -fx-app-goal-card-background; /* Фон картки цілі (змінна) */
+    -fx-border-color: -fx-app-goal-card-border-color; /* Колір рамки картки цілі (змінна) */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 8px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 8px; /* Радіус заокруглення фону */
+    -fx-padding: 16px; /* Внутрішні відступи */
+    -fx-spacing: 8px; /* Відстань між елементами всередині картки */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 2); /* Ефект тіні */
+    -fx-pref-width: 300px; /* Бажана ширина картки */
+    -fx-min-width: 250px; /* Мінімальна ширина картки */
+}
+
+/* Базові стилі для тексту всіх елементів всередині картки цілі */
+.goal-card .label,
+.goal-card .button,
+.goal-card .goal-card-description,
+.goal-card .goal-card-details-label,
+.goal-card .goal-card-progress-text,
+.goal-card .goal-card-date-added {
+    -fx-text-fill: -fx-app-goal-card-text-color; /* Колір тексту на картці цілі (змінна) */
+}
+
+/* Специфічний колір для тексту прогресу на досягнутій цілі */
+.goal-card-achieved .goal-card-progress-text {
+    -fx-text-fill: -fx-app-goal-card-achieved-text-color; /* Колір тексту для досягнутої цілі (змінна) */
+}
+
+.goal-card:hover {
+    -fx-effect: -fx-app-shadow-large; /* Посилений ефект тіні при наведенні (змінна) */
+}
+
+/* Стиль для виконаної/досягнутої цілі */
+.goal-card-achieved {
+    -fx-border-color: -fx-app-text-color-success; /* Зелена рамка для позначення успіху (змінна) */
+    -fx-border-width: 2px; /* Потовщена рамка */
+}
+
+/* ==========================================================================
+   Елементи всередині картки цілі
+   ========================================================================== */
+
+/* Опис цілі */
+.goal-card-description {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 1.2em; /* Розмір шрифту */
+    -fx-font-weight: bold;  /* Жирний шрифт */
+    -fx-wrap-text: true; /* Увімкнути перенос тексту */
+    -fx-alignment: CENTER; /* Вирівнювання контейнера тексту (якщо це Label) */
+    -fx-text-alignment: CENTER; /* Вирівнювання самого тексту */
+}
+
+/* Тип цілі, Цільове значення (текстові мітки) */
+.goal-card-details-label {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 1.0125em;  /* Розмір шрифту (збільшено з 0.8125em) */
+}
+
+/* Текст прогресу (наприклад, "Прочитано: X / Y") */
+.goal-card-progress-text {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 1.0125em;  /* Розмір шрифту (збільшено з 0.8125em) */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+}
+.goal-card-achieved .goal-card-progress-text { /* Текст прогресу для досягнутої цілі */
+    -fx-text-fill: -fx-app-text-color-success; /* Зелений колір тексту (змінна) */
+    -fx-font-weight: bold; /* Додано жирний шрифт для виділення */
+}
+
+/* ProgressBar всередині картки цілі */
+.goal-card .progress-bar {
+    -fx-pref-height: 10px; /* Бажана висота прогрес-бару */
+    -fx-max-width: Infinity; /* Дозволити прогрес-бару розтягуватися на всю ширину */
+}
+
+/* Колір заповненої частини прогрес-бару (прочитана частина) */
+.goal-card .progress-bar > .bar {
+    -fx-background-color: #3E2C23; /* Фіксований колір (темний) */
+    -fx-background-radius: 4px; /* Радіус заокруглення */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+}
+
+/* Колір доріжки прогрес-бару (непрочитана частина) */
+.goal-card .progress-bar > .track {
+    -fx-background-color: #F5EFE6; /* Фіксований колір (світлий) */
+    -fx-background-radius: 4px; /* Радіус заокруглення */
+    -fx-background-insets: 0; /* Нульові внутрішні відступи фону */
+}
+
+/* Для виконаної цілі змінюємо колір заповненої частини прогрес-бару */
+.goal-card-achieved .progress-bar > .bar {
+    -fx-background-color: -fx-app-text-color-success; /* Зелений колір (змінна) */
+}
+
+/* Дата додавання цілі */
+.goal-card-date-added {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт (змінна) */
+    -fx-font-size: 0.95em;  /* Розмір шрифту (збільшено з 0.75em) */
+    -fx-font-style: italic; /* Курсивний стиль */
+}
+
+/* ==========================================================================
+   Кнопки на картці цілі ("Редагувати", "Видалити")
+   ========================================================================== */
+.goal-card-edit-button,
+.goal-card-delete-button {
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-text-fill: -fx-app-goal-card-button-text-color; /* Колір тексту кнопки (змінна) */
+    -fx-border-color: -fx-app-goal-card-button-border-color; /* Колір рамки кнопки (змінна) */
+    -fx-font-size: 13px; /* Розмір шрифту */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-padding: 8px 16px; /* Внутрішні відступи */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+    -fx-min-width: 100px; /* Мінімальна ширина кнопки */
+    -fx-pref-height: 32px; /* Бажана висота кнопки */
+    -fx-alignment: CENTER; /* Вирівнювання тексту по центру */
+    -fx-text-alignment: CENTER; /* Вирівнювання тексту (додатково, якщо потрібно) */
+}
+
+/* Стилі для кнопок на картці при наведенні (для світлої теми, якщо фон кнопок світлий) */
+.goal-card-edit-button:hover,
+.goal-card-delete-button:hover {
+    -fx-background-color: -fx-app-goal-card-button-hover-background; /* Фон кнопки при наведенні (змінна) */
+    -fx-text-fill: -fx-app-goal-card-text-color; /* Колір тексту при наведенні (може бути той самий, змінна) */
+}

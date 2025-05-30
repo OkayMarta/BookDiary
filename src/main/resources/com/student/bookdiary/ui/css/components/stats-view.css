@@ -1,0 +1,17 @@
+/* Заголовок екрану "Статистика" (якщо використовується) */
+.stats-title {
+    -fx-font-family: 'Montserrat', 'Arial Black', Arial, sans-serif; /* Сімейство шрифтів (основний Montserrat, з резервними варіантами) */
+    -fx-font-size: 38px; /* Розмір шрифту */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: -fx-app-text-color-primary; /* Основний колір тексту (змінна) */
+    -fx-padding: 0 0 8px 0; /* Відступ знизу 8px */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 2, 0, 0, 1); /* Легка тінь */
+}
+
+/* Підзаголовок "Виберіть дату" */
+.stats-subtitle {
+    -fx-font-size: 20px;  /* Розмір шрифту для підзаголовка */
+    -fx-text-fill: -fx-app-text-color-secondary; /* Вторинний колір тексту (змінна) */
+    -fx-padding: 0 0 24px 0; /* Відступ знизу 24px */
+    -fx-font-weight: 500; /* Насиченість шрифту: medium (опціонально, для трохи жирнішого тексту) */
+}

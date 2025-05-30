@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Стилі для обкладинки книги (елемент ImageView з класом .book-detail-cover)
+   ========================================================================== */
+.book-detail-cover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0, 1, 1); /* Ефект тіні для обкладинки */
+}
+
+/* === СТИЛІ ДЛЯ ТЕКСТУ ДЕТАЛЬНОЇ ІНФОРМАЦІЇ ПРО КНИГУ === */
+
+/* Назва книги */
+.book-detail-name-text {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 28px; /* Розмір шрифту для назви книги */
+    -fx-font-weight: bold; /* Жирний шрифт */
+    -fx-text-fill: -fx-app-text-color-primary; /* Основний колір тексту */
+    -fx-padding: 5px 0; /* Невеликі вертикальні відступи */
+}
+
+/* Автор книги */
+.book-detail-author-text {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 20px; /* Розмір шрифту для автора книги */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-text-fill: -fx-app-text-color-secondary; /* Вторинний колір тексту (може бути трохи світлішим) */
+    -fx-padding: 0 0 5px 0; /* Відступ знизу */
+}
+
+/* Загальний стиль для іншого інформаційного тексту (Жанр, Дати, Мітка "Рейтинг", Мітка "Коментар") */
+.book-detail-info-text {
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 16px; /* Розмір шрифту для решти інформаційного тексту */
+    -fx-text-fill: -fx-app-text-color-primary; /* Основний колір тексту (або -fx-app-text-color-secondary для менш важливої інформації) */
+}
+
+/* Стиль для текстової області коментаря */
+.book-detail-comment-area {
+    /* Шрифт вже заданий через успадкування від .book-detail-info-text, якщо цей клас також застосований */
+    -fx-background-color: -fx-app-background-primary; /* Фон такий самий, як у теми */
+    -fx-padding: 8px; /* Внутрішні відступи */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-border-color: -fx-app-text-color-primary; /* Колір рамки такий самий, як у тексту */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-wrap-text: true; /* Увімкнути перенос тексту */
+}
+
+.book-detail-comment-area .content { /* Для правильного відображення фону тексту всередині TextArea */
+    -fx-background-color: -fx-app-background-primary; /* Той самий колір фону, що й у батьківського елемента */
+}
+
+.book-detail-comment-area:focused {
+    -fx-background-color: -fx-app-background-primary; /* Фон при фокусі */
+    -fx-border-color: -fx-app-text-color-primary; /* Колір рамки при фокусі */
+}
+
+/* Існуючі стилі для зірочок рейтингу (залишаємо або коригуємо розмір, якщо потрібно) */
+.book-detail-star-filled { /* Заповнена зірочка рейтингу */
+    -fx-font-size: 18px; /* Розмір шрифту/іконки зірочки */
+    -fx-text-fill: -fx-app-text-color-primary; /* Колір заповненої зірочки */
+}
+
+.book-detail-star-empty { /* Порожня зірочка рейтингу */
+    -fx-font-size: 18px; /* Розмір шрифту/іконки зірочки */
+    -fx-text-fill: -fx-app-text-color-muted; /* Колір порожньої зірочки (приглушений) */
+}
+
+.book-detail-no-rating { /* Текст, що відображається, коли рейтинг не вказано */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 16px; /* Розмір шрифту, як у .book-detail-info-text */
+    -fx-font-style: italic; /* Курсивний стиль */
+    -fx-text-fill: -fx-app-text-color-muted; /* Приглушений колір тексту */
+}
+
+/* ==========================================================================
+   Контейнер для кнопок дій (елемент HBox з класом .book-detail-actions-container)
+   ========================================================================== */
+.book-detail-actions-container {
+    -fx-spacing: 16px; /* Відстань між кнопками */
+    -fx-alignment: CENTER_LEFT; /* Вирівнювання кнопок по центру зліва */
+}
+
+/* ==========================================================================
+   Кнопки дій (елементи Button з класами .book-detail-edit-button, .book-detail-delete-button, .book-detail-favorite-button)
+   ========================================================================== */
+
+.book-detail-edit-button { /* Кнопка "Редагувати" */
+    -fx-background-color: #AA8F76; /* Колір фону */
+    -fx-text-fill: #FFFFFF; /* Колір тексту */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+    -fx-padding: 8px 24px; /* Внутрішні відступи (збільшено горизонтальний для кращого вигляду) */
+}
+
+.book-detail-delete-button { /* Кнопка "Видалити" */
+    -fx-background-color: #AA8F76; /* Колір фону */
+    -fx-text-fill: #FFFFFF; /* Колір тексту */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+    -fx-padding: 8px 24px; /* Внутрішні відступи */
+}
+
+.book-detail-favorite-button { /* Кнопка "В обране" / "З обраного" */
+    -fx-background-color: #AA8F76; /* Колір фону */
+    -fx-text-fill: #FFFFFF; /* Колір тексту */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+    -fx-padding: 8px 24px; /* Внутрішні відступи */
+}
+
+.book-detail-edit-button:hover,
+.book-detail-delete-button:hover,
+.book-detail-favorite-button:hover {
+    -fx-background-color: derive(#AA8F76, -10%); /* Колір фону при наведенні (трохи темніший) */
+}
+
+/* ==========================================================================
+   Кнопка "Назад" (елемент Button з класом .book-detail-back-button)
+   ========================================================================== */
+.book-detail-back-button {
+    -fx-background-color: transparent; /* Прозорий фон */
+    -fx-text-fill: -fx-app-text-color-secondary; /* Вторинний колір тексту */
+    -fx-border-color: #AA8F76; /* Колір рамки */
+    -fx-border-width: 1px; /* Товщина рамки */
+    -fx-border-radius: 4px; /* Радіус заокруглення рамки */
+    -fx-background-radius: 4px; /* Радіус заокруглення фону (для hover ефекту) */
+    -fx-font-family: -fx-app-font-family-primary; /* Основний шрифт програми */
+    -fx-font-size: 14px; /* Розмір шрифту */
+    -fx-font-weight: 500; /* Напівжирний шрифт (medium) */
+    -fx-padding: 8px 24px; /* Внутрішні відступи */
+    -fx-cursor: hand; /* Тип курсора "рука" */
+}
+
+.book-detail-back-button:hover {
+    -fx-background-color: derive(-fx-app-background-primary, -5%); /* Колір фону при наведенні (трохи темніший від основного фону) */
+}
