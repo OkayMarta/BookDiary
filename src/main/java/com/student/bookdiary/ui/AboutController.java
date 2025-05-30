@@ -24,7 +24,7 @@ public class AboutController {
     private static final Logger log = LoggerFactory.getLogger(AboutController.class);
 
     // Константи для значень, що відображаються, та повідомлень для діалогових вікон
-    private static final String GITHUB_URL = "https://github.com/OkayMarta";
+    private static final String GITHUB_URL = "https://github.com/OkayMarta/BookDiary";
     private static final String VERSION = "1.0-SNAPSHOT"; // Рекомендується завантажувати версію з властивостей збірки (pom.xml)
     private static final String AUTHOR = "Окілка Марта Юріївна";
     private static final String COPYRIGHT_NOTICE_PREFIX = "© ";

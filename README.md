@@ -115,4 +115,4 @@ BookDiary/
 
 ## 👤 Автор
 
-*   **Окілка Марта Юріївна** - [OkayMarta](https://github.com/OkayMarta) (посилання на GitHub з `AboutController`).
+*   **Окілка Марта Юріївна** - [OkayMarta](https://github.com/OkayMarta) .
